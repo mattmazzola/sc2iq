@@ -5,6 +5,7 @@ module.exports = function(environment) {
     modulePrefix: 'sc2iq',
     podModulePrefix: 'sc2iq/pods',
     environment: environment,
+    firebase: 'https://sc2iq.firebaseio.com/',
     baseURL: '/',
     locationType: 'auto',
     EmberENV: {
@@ -17,6 +18,16 @@ module.exports = function(environment) {
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
+    },
+    contentSecurityPolicy: {
+      'default-src': "'none'",
+      'script-src': "'self' 'unsafe-inline' 'unsafe-eval' localhost:35729",
+      'font-src': "'self' https://fonts.gstatic.com",
+      'connect-src': "'self' wss://*.firebaseio.com https://auth.firebase.com/",
+      'img-src': "'self' data:",
+      'report-uri': "'localhost'",
+      'style-src': "'self' 'unsafe-inline' http://fonts.googleapis.com",
+      'frame-src': "https://*.firebaseio.com/"
     }
   };
 
