@@ -1,0 +1,20 @@
+<header class="sc2iq-header">
+  <div class="container">
+    <nav>
+      {{#link-to "index" }}SC2IQ{{/link-to}}
+      <ul>
+        <li>{{#link-to "test"}}Test{{/link-to}}</li>
+        <li>{{#link-to "questions" }}Questions{{/link-to}}</li>
+        <li>{{#link-to "scores"}}Scores{{/link-to}}</li>
+        <li>{{#link-to "polls"}}Polls{{/link-to}}</li>
+        <li>{{#link-to "contact"}}Contact{{/link-to}}</li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main class="sc2iq-main">
+  <div class="container">
+    {{outlet}}
+  </div>
+</main>

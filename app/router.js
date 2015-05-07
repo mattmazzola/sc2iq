@@ -6,4 +6,9 @@ var Router = Ember.Router.extend({
 });
 
 export default Router.map(function() {
+  this.route('questions');
+  this.route('scores');
+  this.route('contact');
+  this.route('polls');
+  this.route('test');
 });
