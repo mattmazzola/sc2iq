@@ -1,1 +1,12 @@
-<h2>Contact</h2>
+<section class="container">
+  <form role="form">
+    <div class="form-group">
+      <label for="comment">Comment:</label>
+      {{textarea class="form-control" rows="3" id="comment" value=message required="required"}}
+    </div>
+    <div class="buttons text-right">
+      <button type="reset" class="btn btn-warning">Reset</button>
+      <button type="button" class="btn btn-primary" {{action "submitForm"}}>Submit</button>
+    </div>
+  </form>
+</section>

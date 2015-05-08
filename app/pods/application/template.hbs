@@ -1,17 +1,36 @@
 <header class="sc2iq-header">
-  <div class="container">
-    <nav>
-      {{#link-to "index" }}SC2IQ{{/link-to}}
-      <ul>
-        <li>{{#link-to "test"}}Test{{/link-to}}</li>
-        <li>{{#link-to "questions" }}Questions{{/link-to}}</li>
-        <li>{{#link-to "scores"}}Scores{{/link-to}}</li>
-        <li>{{#link-to "polls"}}Polls{{/link-to}}</li>
-        <li>{{#link-to "contact"}}Contact{{/link-to}}</li>
-      </ul>
-    </nav>
-  </div>
+  <nav class="navbar navbar-default">
+    <div class="container">
+      <!-- Brand and toggle get grouped for better mobile display -->
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        {{#link-to "index" class="navbar-brand"}}SC2IQ{{/link-to}}
+      </div>
+
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+        <ul class="nav navbar-nav">
+          <li>{{#link-to "test"}}Test{{/link-to}}</li>
+          <li>{{#link-to "questions" }}Questions{{/link-to}}</li>
+          <li>{{#link-to "scores"}}Scores{{/link-to}}</li>
+          <li>{{#link-to "polls"}}Polls{{/link-to}}</li>
+          <li>{{#link-to "contact"}}Contact{{/link-to}}</li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <li>
+              <a>Firstname Lastname {{#bs-button class="btn btn-default btn-xs"}}Logout{{/bs-button}}</a>
+            </li>
+        </ul>
+      </div><!-- /.navbar-collapse -->
+    </div><!-- /.container-fluid -->
+  </nav>
 </header>
+
 
 <main class="sc2iq-main">
   <div class="container">

@@ -1,11 +1,23 @@
 <h2>Questions.Index</h2>
 
+<form>
+  <div class="form-group">
+    <label for="newQuestionTitle">Title</label>
+    {{input type="text" class="form-control" id="newQuestionTitle" value=newQuestion.title}}
+  </div>
+  <div class="form-group">
+    <label for="newQuestionAnswer">Answer</label>
+    {{input type="text" class="form-control" id="newQuestionAnswer1" value=newQuestion.answer}}
+  </div>
+  <button type="button" class="btn btn-default" {{action "submit"}}>Submit</button>
+</form>
+
+<hr>
+
 <ul>
-  {{#each question in model}}
+  {{#each model as |question|}}
   <li>
-    <div class="sc2iq-question">
-      Name: {{#link-to "questions.question" question }}{{question.name}}{{/link-to}}
-    </div>
+    {{#link-to "questions.question" question}}{{question.title}} - {{question.answer}}{{/link-to}}
   </li>
   {{/each}}
 </ul>

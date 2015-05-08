@@ -1,1 +1,20 @@
-<h2>Index</h2>
+<h3>Login</h3>
+<button type="button" class="btn btn-primary btn-block">Facebook</button>
+<button type="button" class="btn btn-default btn-block">Twitter</button>
+<button type="button" class="btn btn-default btn-block">GitHub</button>
+<button type="button" class="btn btn-default btn-block">Google</button>
+
+<h3>Logged in as, Username</h3>
+{{#link-to "test" tagName="button" class="btn btn-block btn-primary btn-lg"}}
+  <span>Take Test!</span>
+{{/link-to}}
+
+{{#link-to "scores" tag="button" class="btn btn-block btn-default"}}
+  <span class="glyphicon glyphicon-list-alt"></span> High Scores
+{{/link-to}}
+{{#link-to "questions" tag="button" class="btn btn-block btn-default"}}
+  <span class="glyphicon glyphicon-search"></span> Study
+{{/link-to}}
+{{#link-to "contact" tag="button" class="btn btn-block btn-default"}}
+  <span class="glyphicon glyphicon-comment"></span> Contact
+{{/link-to}}

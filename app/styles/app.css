@@ -2,3 +2,397 @@
   max-width: 800px;
   margin: 0 auto;
 }
+
+/* Put your CSS here */
+
+/* Bootstrap Overrides / Additions */
+.list-group-item-success {
+  color: #ffffff;
+  background-color: #5cb85c;
+  border-color: #4cae4c;
+}
+
+.ember-application {
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+}
+
+.page-index {
+    font-size: 2em;
+}
+
+.page-index .title {
+}
+
+.page-index .take-test {
+    padding: 2em;
+}
+
+.page-index .take-test button {
+    font-size: 1.5em;
+    padding: 0.5em 1em;
+}
+
+.page-index .main_buttons a {
+    display: block;
+    padding: 20px;
+    text-align: center;
+    text-decoration: none;
+}
+
+.page-index .main_buttons a:nth-child(2n+1) {
+    background-color: rgba(0,0,0,0.025);
+}
+
+.page-index .main_buttons a:hover {
+    background-color: rgba(0,0,0,0.1);
+}
+
+.page-index .main_buttons a .glyphicon {
+    vertical-align: middle;
+    margin-bottom: 0.125em;
+    margin-right: 0.25em;
+}
+
+
+.page section {
+}
+
+.page_buttons {
+    background: #000;
+}
+
+.page_buttons .home {
+    background: rgba(0,0,0,0.1);
+}
+
+.page_buttons ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.page_buttons ul li {
+    float: left;
+}
+
+.page_buttons ul li a {
+    display: block;
+    padding: 1em;
+    text-decoration: none;
+    color: #87e7ff;
+}
+
+.page_buttons ul li a .glyphicon {
+    margin-right: 0.5em;
+}
+
+.page_buttons ul li a:hover {
+    background-color: rgba(255,255,255,0.15);
+}
+
+.page_buttons ul li a.active {
+    background-color: rgba(255,255,255,0.2);
+}
+.page-test .time {
+    margin: 1em 0;
+}
+
+.page-test .quit {
+    margin: 2em 0;
+}
+.page-test .start {
+    margin-bottom: 1.5em;
+}
+
+.page-test .start button {
+    font-size: 24px;
+}
+
+.page-test .question .panel-heading {
+    padding: 2em;
+}
+
+.page-test .question .panel-heading .big-q {
+    font-size: 48px;
+    line-height: 48px;
+    float: left;
+}
+
+.page-test .question .panel-heading p {
+    padding-left: 60px;
+    margin: 0;
+    font-size: 36px;
+    font-weight: 700;
+}
+
+.page-test .question .panel-body {
+    padding: 2em;
+}
+
+.page-test .question .answer {
+    text-align: left;
+}
+
+.page-test .question .answer:not(:last-of-type) {
+    margin-bottom: 1em;
+}
+
+.page-test .question .answer .index {
+    border-right: 1px solid #bbb;
+    padding: 0.6em 1em;
+}
+
+.page-test .question .answer .text {
+    padding-left: 1em;
+}
+
+.page-test .results .data {
+    margin-bottom: 1.5em;
+}
+
+.page-test .results .buttons button {
+    margin-bottom: 1em;
+}
+
+.page-test .details .questions .incorrect .glyphicon {
+    color: #972626;
+}
+
+.page-test .details .questions .correct .glyphicon {
+    color: #3cae3c;
+}
+
+.page-test .keyboard-shortcuts {
+    margin-top: 5em;
+    color: #999;
+}
+
+
+/* ############# Page/Scores ################ */
+.page-scores header {
+    padding: 1em 0;
+    font-size: 18px;
+    font-weight: bold;
+    border-bottom: 1px solid #eee;
+}
+
+.page-scores .page-scores-item .result {
+}
+
+.page-scores .page-scores-item .result .teaser {
+    padding: 1em 0;
+    font-size: 18px;
+    cursor: pointer;
+}
+
+.page-scores .page-scores-item .result .details .container {
+    border-top: 1px solid #eee;
+    padding: 1em 0;
+}
+
+.page-scores .page-scores-item .result .details .container .questions .incorrect .glyphicon {
+    color: #972626;
+}
+
+.page-scores .page-scores-item .result .details .container .questions .correct .glyphicon {
+    color: #3cae3c;
+}
+
+.page-scores .page-scores-item:nth-of-type(2n+1) {
+    background-color: rgba(0,0,0,0.025);
+}
+
+
+
+/* ############# Page/Study ################ */
+.page-study .new {
+    padding: 0.5em 0;
+}
+
+.page-study .new .trigger {
+    padding-top: 1em;
+}
+
+.page-study .new .trigger textarea {
+    resize: none;
+}
+
+.page-study .new .content {
+    padding-bottom: 1em;
+}
+
+.input-group-range {
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+.input-group-range .input-group-addon {
+    border: none;
+}
+.input-group-range .input-group-addon:first-child {
+    border-right: 1px solid #ccc;
+}
+.input-group-range .input-group-addon:last-child {
+    border-left: 1px solid #ccc;
+}
+.input-group-range .input-group-range-value {
+    border-left: 1px solid #ccc;
+    width: 3em;
+}
+.form-range{
+    display: table-cell;
+    margin: 0;
+    width: 100%;
+    height: 34px;
+    height: 34px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.428571429;
+    vertical-align: middle;
+    border: 1px solid #cccccc;
+}
+
+.page-study .new .content .filtered-tags {
+    position: relative;
+}
+
+.page-study .new .content .filtered-tags ul {
+    z-index: 500;
+    position: absolute;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    left: 0;
+    right: 0;
+}
+
+.page-study .new .content .filtered-tags ul li {
+    background: white;
+    padding: 0.75em;
+    border-left: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+}
+
+.page-study .new .content .filtered-tags ul li:hover {
+    background-color: #eee;
+}
+
+.page-study .new .content .filtered-tags ul li:first-of-type {
+    border-top: 1px solid #ccc;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+}
+
+.page-study .new .content .filtered-tags ul li:last-of-type {
+    border-bottom: 1px solid #ccc;
+    border-bottom-left-radius: 3px;
+    border-bottom-right-radius: 3px;
+}
+
+.page-study .new .content .selected-tags ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.page-study .new .content .selected-tags ul li {
+    border-radius: 3px;
+    float: left;
+    display: block;
+    padding-left: 1em;
+    background: #eee;
+    margin-right: 1em;
+    margin-bottom: 1em;
+}
+
+.page-study .new .content .selected-tags ul li .glyphicon-tag {
+    margin-right: 0.5em;
+}
+
+
+.page-study .search {
+    background-color: rgba(0,0,0,0.1);
+    padding: 0.5em 0;
+}
+
+.page-study .search .trigger {
+    padding-top: 1em;
+}
+
+.page-study .results .page-study-item:nth-of-type(2n+1) {
+    background-color: rgba(0,0,0,0.025);
+}
+.page-study .results .question-container {
+    border-bottom: 1px solid #eee;
+    cursor: pointer;
+}
+
+/*.page-study .results .question-container:hover {
+    background-color: #87e7ff;
+}*/
+
+.page-study .results .question-container .question {
+    padding: 2em 0;
+}
+
+.page-study .results .question-container .question .big-q {
+    float: left;
+    font-size: 40px;
+    line-height: 40px;
+    width: 80px;
+    color: #999;
+}
+
+.page-study .results .question-container .question p {
+    padding-left: 80px;
+    font-size: 18px;
+    font-weight: bold;
+    margin: 0;
+    color: #444;
+}
+
+.page-study .results .question-container .question .expand-contract {
+    padding: 0;
+    font-size: 38px;
+    line-height: 32px;
+    color: #444;
+}
+
+.page-study .results .question-container .question .expand-contract .glyphicon {
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out; all 0.3s ease-in-out; all 0s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+}
+
+.page-study .results .question-container .question .expand-contract .glyphicon.rotate {
+    -moz-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    transform: rotate(45deg);
+}
+
+.page-study .results .question-container .question-details {
+    padding-bottom: 1em;
+}
+
+.page-study .results .question-container .question-details .first-break {
+    margin-top: 0;
+}
+
+.page-study .results .question-container .question-details .metadata > span {
+    display: inline-block;
+    margin-right: 2em;
+}
+.page-study .load-more {
+    margin-top: 2em;
+    margin-bottom: 2em;
+}
+
+/* ###### Page-contact ########## */
+.page-contact {
+    padding-top: 1em;
+}
