@@ -1,0 +1,11 @@
+<h2>Questions.Index</h2>
+
+<ul>
+  {{#each question in model}}
+  <li>
+    <div class="sc2iq-question">
+      Name: {{#link-to "questions.question" question }}{{question.name}}{{/link-to}}
+    </div>
+  </li>
+  {{/each}}
+</ul>
