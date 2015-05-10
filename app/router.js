@@ -13,6 +13,8 @@ export default Router.map(function() {
   });
   this.route('scores');
   this.route('contact');
-  this.route('polls');
+  this.route('polls', function() {
+    this.route('poll', { path: '/:poll_id'});
+  });
   this.route('test');
 });
