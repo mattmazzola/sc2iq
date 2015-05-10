@@ -9,16 +9,18 @@ export function initialize(/*container, app */) {
   });
 }
 
-var convertToError = (errorLikeObject) => {
-    if (Ember.typeOf(errorLikeObject) === 'object') {
-        var message = errorLikeObject.responseText || errorLikeObject.message || errorLikeObject.toString();
-        var status = errorLikeObject.status;
-        var error = new Error(message);
-        if (status) {
-          error.status = status;
-        }
+var convertToError = (error) => {
+  if (Ember.typeOf(error) === 'object') {
+    var message = error.responseText || error.message || error.toString();
+    var status = error.status;
+    error = new Error(message);
+    
+    if (status) {
+      error.status = status;
     }
-    return error;
+  }
+
+  return error;
 };
 
 export function logError(errorLikeObject) {
