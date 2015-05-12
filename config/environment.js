@@ -23,7 +23,7 @@ module.exports = function(environment) {
       'default-src': "'none'",
       'script-src': "'self' 'unsafe-inline' 'unsafe-eval' localhost:35729 d2zah9y47r7bi2.cloudfront.net",
       'font-src': "'self' https://fonts.gstatic.com",
-      'connect-src': "'self' wss://*.firebaseio.com https://auth.firebase.com/",
+      'connect-src': "'self' wss://*.firebaseio.com https://auth.firebase.com/ https://capture.trackjs.com",
       'img-src': "'self' data: https://usage.trackjs.com",
       'report-uri': "'localhost'",
       'style-src': "'self' 'unsafe-inline' http://fonts.googleapis.com",

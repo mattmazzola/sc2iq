@@ -27,8 +27,12 @@ export function logError(errorLikeObject) {
   // Ensure that error is an instance of Error
   let error = convertToError(errorLikeObject);
 
+  //TODO: Determine how to properly reference trackJs
+  // possibly convert to ember-addon and import.
+  let trackJs = trackJs || { track: () => {} };
+
   // Log in trackJs (prod only)
-  trackJs.track(err);
+  trackJs.track(error);
 
   // Log to console (dev only)
   Ember.Logger.assert(false, error);
