@@ -14,7 +14,7 @@ var convertToError = (error) => {
     var message = error.responseText || error.message || error.toString();
     var status = error.status;
     error = new Error(message);
-    
+
     if (status) {
       error.status = status;
     }
@@ -27,8 +27,8 @@ export function logError(errorLikeObject) {
   // Ensure that error is an instance of Error
   let error = convertToError(errorLikeObject);
 
-  // // Log in trackJs (prod only)
-  // trackJs.track(err);
+  // Log in trackJs (prod only)
+  trackJs.track(err);
 
   // Log to console (dev only)
   Ember.Logger.assert(false, error);
