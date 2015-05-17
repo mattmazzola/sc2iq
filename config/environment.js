@@ -14,7 +14,6 @@ module.exports = function(environment) {
         // e.g. 'with-controller': true
       }
     },
-
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
@@ -28,6 +27,13 @@ module.exports = function(environment) {
       'report-uri': "'localhost'",
       'style-src': "'self' 'unsafe-inline' http://fonts.googleapis.com",
       'frame-src': "https://*.firebaseio.com/"
+    },
+
+    'simple-auth': {
+      authenticationRoute: 'index',
+      // authorizer: 'simple-auth-authorizer:oauth2-bearer',
+      crossOriginWhitelist: ['*'],
+      store: 'simple-auth-session-store:local-storage'
     }
   };
 

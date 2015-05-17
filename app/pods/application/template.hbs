@@ -15,16 +15,20 @@
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
-          <li>{{#link-to "test"}}Test{{/link-to}}</li>
-          <li>{{#link-to "questions" }}Questions{{/link-to}}</li>
-          <li>{{#link-to "scores"}}Scores{{/link-to}}</li>
-          <li>{{#link-to "polls"}}Polls{{/link-to}}</li>
-          <li>{{#link-to "contact"}}Contact{{/link-to}}</li>
+          {{#if session.isAuthenticated}}
+            <li>{{#link-to "test"}}Test{{/link-to}}</li>
+            <li>{{#link-to "questions" }}Questions{{/link-to}}</li>
+            <li>{{#link-to "scores"}}Scores{{/link-to}}</li>
+            <li>{{#link-to "polls"}}Polls{{/link-to}}</li>
+            <li>{{#link-to "contact"}}Contact{{/link-to}}</li>
+          {{/if}}
         </ul>
         <ul class="nav navbar-nav navbar-right">
+          {{#if session.isAuthenticated}}
             <li>
-              <a>Firstname Lastname {{#bs-button class="btn btn-default btn-xs"}}Logout{{/bs-button}}</a>
+              <a>{{#bs-button class="btn btn-default btn-xs" action="logout"}}Logout{{/bs-button}}</a>
             </li>
+          {{/if}}
         </ul>
       </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->

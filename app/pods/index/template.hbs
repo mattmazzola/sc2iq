@@ -1,9 +1,4 @@
-<h3>Login</h3>
-<button type="button" class="btn btn-primary btn-block">Facebook</button>
-<button type="button" class="btn btn-default btn-block">Twitter</button>
-<button type="button" class="btn btn-default btn-block">GitHub</button>
-<button type="button" class="btn btn-default btn-block">Google</button>
-
+{{#if session.isAuthenticated}}
 <h3>Logged in as, Username</h3>
 {{#link-to "test" tagName="button" class="btn btn-block btn-primary btn-lg"}}
   <span>Take Test!</span>
@@ -18,3 +13,11 @@
 {{#link-to "contact" tag="button" class="btn btn-block btn-default"}}
   <span class="glyphicon glyphicon-comment"></span> Contact
 {{/link-to}}
+
+{{else}}
+<h3>Login</h3>
+<button type="button" class="btn btn-primary btn-block">Facebook</button>
+<button type="button" class="btn btn-default btn-block">Twitter</button>
+<button type="button" class="btn btn-default btn-block">GitHub</button>
+<button type="button" class="btn btn-default btn-block">Google</button>
+{{/if}}
