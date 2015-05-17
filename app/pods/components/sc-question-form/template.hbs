@@ -1,0 +1,74 @@
+<div class="sc-questionForm">
+  <form class="form-horizontal" role="form" {{action "submit" on="submit"}}>
+      <div class="form-group">
+        <label for="question" class="col-sm-3 control-label"><span class="glyphicon glyphicon-edit"></span> Propose New Question:</label>
+        <div class="col-sm-9" {{action "expand" }}>
+          {{textarea
+            class="form-control question-textarea"
+            rows="2"
+            required="required"
+            placeholder="Why is protoss OP?"
+            value=question.text
+            viewName="questionTextarea"
+          }}
+        </div>
+      </div>
+      <div class="sc-questionForm__content {{unless isExpanded 'hidden'}}">
+        <div class="form-group">
+          <label for="answer1" class="col-xs-12 col-sm-3 control-label">Correct Answer:</label>
+          <div class="col-xs-11 col-sm-9">
+              {{input type="text" class="form-control" id="answer1" placeholder="Answer 1" required="required" value=question.answer1}}
+          </div>
+        </div>
+        <div class="divider">
+          <hr />
+        </div>
+        <div class="form-group">
+          <label for="answer2" class="col-xs-12 col-sm-3 control-label">Answer 2</label>
+          <div class="col-xs-11 col-sm-9">
+            {{input type="text" class="form-control" id="answer2" placeholder="Answer 2" required="required" value=question.answer2}}
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="answer3" class="col-xs-12 col-sm-3 control-label">Answer 3</label>
+          <div class="col-xs-11 col-sm-9">
+              {{input type="text" class="form-control" id="answer3" placeholder="Answer 3" required="required" value=question.answer3}}
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="answer4" class="col-xs-12 col-sm-3 control-label">Answer 4</label>
+          <div class="col-xs-11 col-sm-9">
+              {{input type="text" class="form-control" id="answer4" placeholder="Answer 4" required="required" value=question.answer4}}
+          </div>
+        </div>
+        <div class="divider">
+          <hr />
+        </div>
+        <div class="form-group">
+          <label for="difficulty" class="col-sm-3 control-label">Difficulty</label>
+          <div class="col-sm-9">
+            <div class="input-group input-group-range">
+              <span class="input-group-addon">1</span>
+              {{input type="range" class="form-range" id="difficulty" step="1" min="1" max="10" value="1" placeholder="Difficulty" required="required" value=question.difficulty}}
+              <span class="input-group-addon input-group-range-value">{{newQuestion.difficulty}}</span>
+              <span class="input-group-addon">10</span>
+            </div>
+            <span class="help-block">Enter the difficulty (Range: 1-10) of the question. The higher the difficulty the more points a question is worth.</span>
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="tags" class="col-sm-3 control-label">Tags</label>
+          <div class="col-sm-9">
+            {{input type="text" class="form-control" id="tags" placeholder="Tags" }}
+            <span class="help-block">Add tags to the question to help categorize it and provide easier lookups when searching. For instance, common tags are the three races (protoss, terran, zerg) or types (units, gameplay, story).</span>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="col-sm-offset-3 col-sm-9">
+            <button type="submit" class="btn btn-lg btn-primary">Submit</button>
+            <button type="reset" class="btn btn-lg btn-warning" {{action "reset"}}>Cancel</button>
+          </div>
+        </div>
+      </div>
+  </form>
+</div>

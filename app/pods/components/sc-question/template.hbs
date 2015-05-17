@@ -1,0 +1,52 @@
+<div class="sc2iq-question">
+  <div class="sc2iq-question__trigger" {{action "toggleProperty" "isAnswersVisible" }}>
+    <div class="row">
+      <div class="col-xs-10">
+        <h3 class="sc2iq-question__title">{{question.text}}</h3>
+      </div>
+      <div class="col-xs-2 text-right">
+        <button type="button" class="btn btn-link">
+          <span class="glyphicon glyphicon-plus sc2iq-icon {{if isAnswersVisible 'sc2iq-icon--rotate'}}" ></span>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="sc2iq-question__answers {{unless isAnswersVisible 'hidden'}}">
+    <ul class="list-group answers">
+      <li class="list-group-item">
+        {{question.answer1}}
+      </li>
+      <li class="list-group-item">
+        {{question.answer2}}
+      </li>
+      <li class="list-group-item">
+        {{question.answer3}}
+      </li>
+      <li class="list-group-item">
+        {{question.answer4}}
+      </li>
+    </ul>
+    <div class="metadata">
+      <span class="difficulty"><strong>Difficulty:</strong> {{question.difficulty}}</span>
+      <span class="completionRate"><strong>Avg. Correct:</strong> {{question.percentageCorrect}}</span>
+      <span class="completionTime"><strong>Avg. Time to Complete:</strong> 12/102 - 9%</span>
+    </div>
+    <div class="tags row">
+      <div class="col-sm-1">Tags:</div>
+      <div class="col-sm-11">
+        {{#each tag in question.tags}}
+        <span class="tag"><span class="glyphicon glyphicon-tag"></span> {{tag}}</span>
+        {{/each}}
+      </div>
+    </div>
+    <hr />
+    <div class="change">
+      <p>
+        Disagree with the question? Submit a change request:
+        {{#link-to "questions.question" question tagName="button" class="btn btn-primary btn-sm btn-warning"}}
+        <span class="glyphicon glyphicon-pencil"></span> Submit Change
+        {{/link-to}}
+      </p>
+    </div>
+  </div>
+</div>
