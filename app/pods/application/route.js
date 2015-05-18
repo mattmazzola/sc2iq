@@ -7,16 +7,18 @@ export default Ember.Route.extend(ApplicationRouteMixin,{
     //   console.log("sessionRequiresAuthentication");
     //   return this.super();
     // },
-    // sessionAuthenticationSucceeded() {
-    //   console.log("sessionAuthenticationSucceeded");
-    //   return this._super();
-    // },
+    sessionAuthenticationSucceeded() {
+      console.log("sessionAuthenticationSucceeded: ", this.get('session.content'));
+    },
     sessionAuthenticationFailed(error) {
       console.error(error.message);
-      return this._super();
     },
     logout() {
       this.get('session').invalidate();
     }
+  },
+
+  setUserOnSession() {
+
   }
 });
