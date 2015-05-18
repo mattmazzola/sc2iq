@@ -20,11 +20,7 @@ export default Base.extend({
       firebase.authWithOAuthPopup(config.provider, (error, response) => {
           return error ? reject(error) : resolve(response);
       });
-    })
-      .then(a => {
-        console.log("Inner Login Success: ", a);
-        return a;
-      });
+    });
   },
   invalidate(session) {
     return new Ember.RSVP.Promise((resolve, reject) => {
