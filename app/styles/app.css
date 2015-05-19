@@ -27,3 +27,22 @@
 .sc2iq-icon--rotate {
   transform: rotate(45deg);
 }
+
+.sc2iq-poll {
+  border-top: 1px solid #cecece;
+}
+.sc2iq-poll__trigger {
+  cursor: pointer;
+  padding: 1em 0;
+}
+.sc2iq-poll__title {
+  font-size: 24px;
+  font-weight: bold;
+  line-height: 1.5em;
+  padding: 0;
+  margin: 0;
+}
+.sc2iq-poll__conent {
+  border-top: 1px solid #f1f1f1;
+  padding: 1em 0;
+}

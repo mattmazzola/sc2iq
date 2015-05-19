@@ -1,0 +1,30 @@
+<div class="sc2iq-poll">
+  <div class="sc2iq-poll__trigger" {{action "toggleProperty" "isExpanded" }}>
+    <div class="row">
+      <div class="col-xs-9">
+        <h3 class="sc2iq-poll__title">{{poll.title}}</h3>
+      </div>
+      <div class="col-xs-3 text-right">
+        <button {{action "addVote" bubbles=false}}>UP</button>
+        <span class="sc2iq-poll__votes">{{poll.votes}}</span>
+        <button {{action "subtractVote" bubbles=false}}>DOWN</button>
+        <button type="button" class="btn btn-link">
+          <span class="glyphicon glyphicon-plus sc2iq-icon {{if isExpanded 'sc2iq-icon--rotate'}}" ></span>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="sc2iq-poll__conent {{unless isExpanded 'hidden'}}">
+    <p>
+      {{poll.description}}
+    </p>
+    <div>
+      {{#link-to "polls.poll" poll}}Visit Full Page{{/link-to}}
+    </div>
+    <div class="sc2iq-poll__metadata">
+      <span class="sc2iq-poll__metadataAuthor"><strong>Author:</strong> {{poll.author.name}}</span>
+      <span class="sc2iq-poll__metadataCreated"><strong>Created:</strong> {{poll.created}}</span>
+      <span class="sc2iq-poll__metadataEdited"><strong>Edited:</strong> {{poll.edited}}</span>
+    </div>
+  </div>
+</div>

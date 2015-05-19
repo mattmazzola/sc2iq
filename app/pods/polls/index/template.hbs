@@ -1,23 +1,5 @@
-<h2>Polls.Index</h2>
+{{sc-poll-form action="savePoll"}}
 
-<form>
-  <div class="form-group">
-    <label for="newPollTitle">Title</label>
-    {{input type="text" class="form-control" id="newPollTitle" value=newPoll.title}}
-  </div>
-  <div class="form-group">
-    <label for="newPollDescription">Password</label>
-    {{input type="text" class="form-control" id="newPollDescription" value=newPoll.description}}
-  </div>
-  <button type="button" class="btn btn-default" {{action "submit"}}>Submit</button>
-</form>
-
-<hr>
-
-<ul>
-  {{#each model as |poll|}}
-  <li>
-    {{#link-to "polls.poll" poll}}{{poll.title}} - {{poll.description}}{{/link-to}}
-  </li>
-  {{/each}}
-</ul>
+{{#each model as |poll|}}
+  {{sc-poll poll=poll}}
+{{/each}}
