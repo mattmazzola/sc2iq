@@ -1,1 +1,22 @@
-<h2>Scores</h2>
+<header>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <button type="button" {{action "addScore"}}>Add Score</button>
+      </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-3 col-xs-6">Score</div>
+        <div class="col-sm-3 col-xs-6">User</div>
+        <div class="col-sm-3 hidden-xs">Duration</div>
+        <div class="col-sm-3 hidden-xs">Date</div>
+    </div>
+  </div>
+</header>
+<section>
+  <div class="container">
+    {{#each model as |score|}}
+      {{sc-score score=score}}
+    {{/each}}
+  </div>
+</section>

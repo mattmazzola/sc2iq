@@ -76,3 +76,18 @@
     vertical-align: middle;
     border: 1px solid #cccccc;
 }
+
+
+
+
+.sc2iq-score {
+  border-top: 1px solid #cccccc;
+}
+.sc2iq-score__trigger {
+  cursor: pointer;
+  padding: 1em 0;
+}
+.sc2iq-score__details {
+  border-top: 1px solid #f1f1f1;
+  padding: 1em 0;
+}

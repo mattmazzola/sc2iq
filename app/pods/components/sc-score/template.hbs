@@ -1,0 +1,24 @@
+<div class="sc2iq-score">
+  <div class="sc2iq-score__trigger" {{action "toggleProperty" "isExpanded" }}>
+    <div class="row">
+      <div class="col-md-3 col-xs-6">
+        {{score.score}}
+      </div>
+      <div class="col-md-3 col-xs-6">
+        {{score.user}}
+      </div>
+      <div class="col-md-3 hidden-xs">
+        {{score.duration}}
+      </div>
+      <div class="col-md-3 hidden-xs">
+        {{moment score.datetime "YYYY-MM-DD hh:mm A"}}
+      </div>
+    </div>
+  </div>
+  <div class="sc2iq-score__details {{if isExpanded '' 'hidden'}}" >
+    <h2>Overview:</h2>
+    <p>
+      Details (Not Implemented)
+    </p>
+  </div>
+</div>
