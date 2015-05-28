@@ -1,0 +1,80 @@
+<div class="sc-test">
+
+  <div class="{{if isStarted 'hidden'}}">
+    <button {{action "start"}}>Begin!</button>
+  </div>
+
+  <div class="{{unless isStarted 'hidden'}}">
+    <div class="{{if isFinished 'hidden'}}">
+      <div class="sc-test__time">
+        <span class="glyphicon glyphicon-dashboard"></span> Time: <span class="elapsed-seconds">{{timeElapsed}}</span>
+      </div>
+      <div class="sc-test__questions">
+        <div class="panel panel-default">
+          <div class="panel-heading clearfix">
+              <span class="big-q">Q</span><p>{{currentQuestion.text}}</p>
+          </div>
+          <div class="panel-body">
+            <button type="button" class="btn btn-default btn-lg btn-block" {{action "submitAnswer" "1" question}}>
+                <span class=" index">1</span>
+                <span class="text">{{currentQuestion.answer1}}</span>
+            </button>
+
+            <button type="button" class="btn btn-default btn-lg btn-block" {{action "submitAnswer" "2" question}}>
+                <span class="index">2</span>
+                <span class="text">{{currentQuestion.answer2}}</span>
+            </button>
+
+            <button type="button" class="btn btn-default btn-lg btn-block" {{action "submitAnswer" "3" question}}>
+                <span class="index">3</span>
+                <span class="text">{{currentQuestion.answer3}}</span>
+            </button>
+
+            <button type="button" class="btn btn-default btn-lg btn-block" {{action "submitAnswer" "4" question}}>
+                <span class="index">4</span>
+                <span class="text">{{currentQuestion.answer4}}</span>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="sc-test__actions text-center">
+        <button type="button" class="btn btn-danger btn-lg" {{action "quit" }}>
+            <span class="glyphicon glyphicon-remove-circle"></span> Quit Test
+        </button>
+      </div>
+
+      <div class="sc-test__tips text-center">
+          <p><strong>Keyboard shortcuts.</strong> (Disregard if you're viewing on a phone.)</p>
+          <p>You can use keyboard shortcuts to help finish the test faster. For instance press 'b' on the keyboard to start the test instead of using clicking the button.</p>
+          <p><strong>b</strong> - Begin Test</p>
+          <p><strong>1</strong> - Select Answer 1</p>
+          <p><strong>2</strong> - Select Answer 2</p>
+          <p><strong>3</strong> - Select Answer 3</p>
+          <p><strong>4</strong> - Select Answer 4</p>
+      </div>
+    </div>
+
+    <div class="sc-test__finished {{unless isFinished 'hidden'}}">
+      <div class="page-header">
+        <h2 class="title text-center">Finished!</h2>
+      </div>
+
+      <div class="text-center">
+        <button type="button" name="button" {{action "restart"}}>Restart</button>
+
+      </div>
+
+      <div class="row">
+        <div class="col-xs-6 text-right">Correct:</div>
+        <div class="col-xs-6">{{result.totalCorrect}}/{{result.totalQuestions}} {{result.percentageCorrect}}%</div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-6 text-right">Score:</div>
+        <div class="col-xs-6">{{result.score}}</div>
+      </div>
+    </div>
+  </div>
+
+</div>
