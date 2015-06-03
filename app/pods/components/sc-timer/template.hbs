@@ -1,0 +1,15 @@
+{{moment timeDifference "mm:ss.SS"}}
+<div class="">
+  {{#unless isStarted}}
+  <button type="button" name="button" class="btn btn-default" {{action "start"}}>Start</button>
+  {{else}}
+    {{#if run}}
+      <button type="button" name="button" class="btn btn-default" {{action "pause"}}>Pause</button>
+    {{else}}
+      <button type="button" name="button" class="btn btn-default" {{action "resume"}}>Resume</button>
+    {{/if}}
+  {{/unless}}
+
+  <button type="button" name="button" class="btn btn-default" {{action "reset"}}>Reset</button>
+  <button type="button" name="button" class="btn btn-default" {{action "read"}}>Read</button>
+</div>

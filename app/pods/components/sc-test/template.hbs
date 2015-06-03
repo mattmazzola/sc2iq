@@ -1,15 +1,15 @@
-<div class="sc-test">
+<div class="sc2iq-test">
 
-  <div class="{{if isStarted 'hidden'}}">
-    <button {{action "start"}}>Begin!</button>
+  <div class="text-center {{if isStarted 'hidden'}}">
+    <button class="btn btn-success btn-xl" {{action "start"}}>Begin!</button>
   </div>
 
   <div class="{{unless isStarted 'hidden'}}">
     <div class="{{if isFinished 'hidden'}}">
-      <div class="sc-test__time">
-        <span class="glyphicon glyphicon-dashboard"></span> Time: <span class="elapsed-seconds">{{timeElapsed}}</span>
+      <div class="sc2iq-test__time text-center">
+        <span class="glyphicon glyphicon-dashboard"></span> Time: {{sc-timer action="log" }}
       </div>
-      <div class="sc-test__questions">
+      <div class="sc2iq-test__questions">
         <div class="panel panel-default">
           <div class="panel-heading clearfix">
               <span class="big-q">Q</span><p>{{currentQuestion.text}}</p>

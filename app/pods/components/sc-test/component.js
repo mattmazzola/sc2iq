@@ -49,6 +49,10 @@ export default Ember.Component.extend({
       else if(maxIndex === this.get('currentQuestionIndex')) {
         this.set('isFinished', true);
       }
+    },
+
+    log(x) {
+      console.log(`log`, x);
     }
   }
 
