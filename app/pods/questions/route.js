@@ -4,9 +4,8 @@ import AuthenticatedRouteMixin from 'simple-auth/mixins/authenticated-route-mixi
 export default Ember.Route.extend(AuthenticatedRouteMixin, {
   actions: {
     saveQuestion(question) {
-      var question = this.store.createRecord('question', question);
-      Ember.Logger.log("route: saveQuestion: ", question.toJSON());
-      question.save();
+      var questionRecord = this.store.createRecord('question', question);
+      questionRecord.save();
     }
   }
 });

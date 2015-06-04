@@ -61,7 +61,7 @@ export default Ember.Component.extend({
       var state = {
         startTime: this.get('startTime'),
         duration: this.get('timeDifference')
-      }
+      };
       this.sendAction('action', state);
     }
   }
