@@ -5,10 +5,10 @@
   </div>
 
   <div class="{{unless isStarted 'hidden'}}">
+    <div class="sc2iq-test__time text-center">
+      <span class="glyphicon glyphicon-dashboard"></span> Time: {{sc-timer action="log" command=timerCommand }}
+    </div>
     <div class="{{if isFinished 'hidden'}}">
-      <div class="sc2iq-test__time text-center">
-        <span class="glyphicon glyphicon-dashboard"></span> Time: {{sc-timer action="log" }}
-      </div>
       <div class="sc2iq-test__questions">
         <div class="panel panel-default">
           <div class="panel-heading clearfix">

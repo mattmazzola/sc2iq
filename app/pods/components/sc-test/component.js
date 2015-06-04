@@ -9,7 +9,7 @@ export default Ember.Component.extend({
   isStarted: false,
   questions: null,
   timeElapsed: null,
-
+  timerCommand: '',
   // Single line CP
 
   // Multiline CP
@@ -23,6 +23,7 @@ export default Ember.Component.extend({
     this.set('isFinished', false);
     this.set('timeElapsed', new Date());
     this.set('currentQuestionIndex', 0);
+    this.set('timerCommand', '');
   }),
 
   // Actions
@@ -38,6 +39,8 @@ export default Ember.Component.extend({
 
     start() {
       this.set('isStarted', true);
+      /** start timer */
+      this.set('timerCommand', 'start');
     },
 
     submitAnswer() {
@@ -45,14 +48,24 @@ export default Ember.Component.extend({
 
       if( maxIndex > this.get('currentQuestionIndex')) {
         this.incrementProperty('currentQuestionIndex');
+        this.set('timerCommand', 'read');
       }
       else if(maxIndex === this.get('currentQuestionIndex')) {
+        this.set('timerCommand', 'pause');
+        // this.set('timerCommand', 'read');
         this.set('isFinished', true);
       }
     },
 
     log(x) {
       console.log(`log`, x);
+    },
+
+    sendCommand(command) {
+      if('string' !== typeof command && command.length > 0) {
+        throw Error(`Command must be a non-empty string. You passed: ${command}`);
+      }
+      this.set('timerCommand', command);
     }
   }
 
