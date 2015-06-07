@@ -16,11 +16,11 @@
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
         <ul class="nav navbar-nav">
           {{#if session.isAuthenticated}}
-            <li>{{#link-to "test"}}Test{{/link-to}}</li>
-            <li>{{#link-to "questions" }}Questions{{/link-to}}</li>
-            <li>{{#link-to "scores"}}Scores{{/link-to}}</li>
-            <li>{{#link-to "polls"}}Polls{{/link-to}}</li>
-            <li>{{#link-to "contact"}}Contact{{/link-to}}</li>
+            <li>{{#link-to "test"}}<span class="glyphicon glyphicon-play"></span> Test{{/link-to}}</li>
+            <li>{{#link-to "questions" }}<span class="glyphicon glyphicon-list"></span> Questions{{/link-to}}</li>
+            <li>{{#link-to "scores"}}<span class="glyphicon glyphicon-sort-by-attributes-alt"></span> Scores{{/link-to}}</li>
+            <li>{{#link-to "polls"}}<span class="glyphicon glyphicon-equalizer"></span> Polls{{/link-to}}</li>
+            <li>{{#link-to "contact"}}<span class="glyphicon glyphicon-pencil"></span> Contact{{/link-to}}</li>
           {{/if}}
         </ul>
         <ul class="nav navbar-nav navbar-right">
