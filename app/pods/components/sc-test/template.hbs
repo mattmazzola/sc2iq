@@ -1,18 +1,45 @@
 <div class="sc2iq-test">
 
-  <div class="text-center {{if isStarted 'hidden'}}">
-    <button class="btn btn-success btn-xl" {{action "start"}}>Begin!</button>
-  </div>
-
-  <div class="{{unless isStarted 'hidden'}}">
+  <div>
     <div class="sc2iq-test__time text-center">
       <span class="glyphicon glyphicon-dashboard"></span> Time: {{sc-timer action="log" command=timerCommand }}
     </div>
     <div class="{{if isFinished 'hidden'}}">
-      <div class="sc2iq-test__questions">
+      <div class="sc2iq-test__start-question {{if isStarted 'hidden'}}">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <span>Fake Question</span>
+          </div>
+          <div class="panel-body">
+            <button type="button" class="btn btn-default btn-lg btn-block">
+                <span class=" index">1</span>
+                <span class="text">Answer 1</span>
+            </button>
+
+            <button type="button" class="btn btn-default btn-lg btn-block">
+                <span class="index">2</span>
+                <span class="text">Answer 2</span>
+            </button>
+
+            <button type="button" class="btn btn-default btn-lg btn-block">
+                <span class="index">3</span>
+                <span class="text">Answer 3</span>
+            </button>
+
+            <button type="button" class="btn btn-default btn-lg btn-block">
+                <span class="index">4</span>
+                <span class="text">Answer 4</span>
+            </button>
+          </div>
+        </div>
+        <button class="sc2iq-test__start-button btn btn-success btn-lg  {{if isStarted 'hidden'}}" {{action "start"}}>
+          <span class="glyphicon glyphicon-play-circle"></span> Begin!
+        </button>
+      </div>
+      <div class="sc2iq-test__questions {{unless isStarted 'hidden'}}">
         <div class="panel panel-default">
           <div class="panel-heading clearfix">
-              <span class="big-q">Q</span><p>{{currentQuestion.text}}</p>
+              <span class="big-q">Q</span><span class="text">{{currentQuestion.text}}</span>
           </div>
           <div class="panel-body">
             <button type="button" class="btn btn-default btn-lg btn-block" {{action "submitAnswer" "1" question}}>
@@ -38,42 +65,50 @@
         </div>
       </div>
 
-      <div class="sc-test__actions text-center">
-        <button type="button" class="btn btn-danger btn-lg" {{action "quit" }}>
-            <span class="glyphicon glyphicon-remove-circle"></span> Quit Test
+      <div class="sc2iq-test__actions text-center">
+        <button type="button" class="btn btn-warning btn-lg" {{action "restart" }} disabled="{{unless isStarted 'disabled'}}">
+            <span class="glyphicon glyphicon-repeat"></span> Restart
         </button>
       </div>
 
-      <div class="sc-test__tips text-center">
-          <p><strong>Keyboard shortcuts.</strong> (Disregard if you're viewing on a phone.)</p>
-          <p>You can use keyboard shortcuts to help finish the test faster. For instance press 'b' on the keyboard to start the test instead of using clicking the button.</p>
-          <p><strong>b</strong> - Begin Test</p>
-          <p><strong>1</strong> - Select Answer 1</p>
-          <p><strong>2</strong> - Select Answer 2</p>
-          <p><strong>3</strong> - Select Answer 3</p>
-          <p><strong>4</strong> - Select Answer 4</p>
+      <div class="sc2iq-test__tips text-center {{if isStarted 'hidden'}}">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <span class="glyphicon glyphicon-star"></span> Keyboard shortcuts.
+          </div>
+          <div class="panel-body">
+            <p><strong>b</strong> - Begin Test</p>
+            <p><strong>1</strong> - Select Answer 1</p>
+            <p><strong>2</strong> - Select Answer 2</p>
+            <p><strong>3</strong> - Select Answer 3</p>
+            <p><strong>4</strong> - Select Answer 4</p>
+          </div>
+        </div>
       </div>
     </div>
 
     <div class="sc-test__finished {{unless isFinished 'hidden'}}">
-      <div class="page-header">
-        <h2 class="title text-center">Finished!</h2>
+
+      <div class="panel panel-default">
+        <div class="panel-heading text-center clearfix">
+          <span class="title text-center">Finished!</span>
+        </div>
+        <div class="panel-body">
+
+          <dl>
+            <dt>Correct:</dt>
+            <dd>{{result.totalCorrect}}/{{result.totalQuestions}} {{result.percentageCorrect}}%</dd>
+
+            <dt>Score:</dt>
+            <dd>Abc 123</dd>
+          </dl>
+
+          <div class="text-center">
+            <button type="button" name="button" class="btn btn-success btn-lg" {{action "restart"}}>Restart</button>
+          </div>
+        </div>
       </div>
 
-      <div class="text-center">
-        <button type="button" name="button" {{action "restart"}}>Restart</button>
-
-      </div>
-
-      <div class="row">
-        <div class="col-xs-6 text-right">Correct:</div>
-        <div class="col-xs-6">{{result.totalCorrect}}/{{result.totalQuestions}} {{result.percentageCorrect}}%</div>
-      </div>
-
-      <div class="row">
-        <div class="col-xs-6 text-right">Score:</div>
-        <div class="col-xs-6">{{result.score}}</div>
-      </div>
     </div>
   </div>
 

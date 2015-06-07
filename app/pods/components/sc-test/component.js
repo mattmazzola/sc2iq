@@ -28,18 +28,13 @@ export default Ember.Component.extend({
 
   // Actions
   actions: {
-    quit() {
-      this.setup();
-    },
-
     restart() {
       this.setup();
-      this.set('isStarted', true);
+      this.set('timerCommand', 'reset');
     },
 
     start() {
       this.set('isStarted', true);
-      /** start timer */
       this.set('timerCommand', 'start');
     },
 

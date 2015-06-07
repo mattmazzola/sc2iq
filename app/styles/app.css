@@ -99,3 +99,26 @@
 .sc2iq-test__time {
   font-size: 2em;
 }
+.sc2iq-test__start-question {
+  position: relative;
+}
+.sc2iq-test__start-question .panel > * {
+  -webkit-filter: blur(5px);
+  -moz-filter: blur(5px);
+  -o-filter: blur(5px);
+  -ms-filter: blur(5px);
+  filter: blur(5px);
+}
+.sc2iq-test__start-button {
+  position: absolute;
+  width: 20%;
+  left: 50%;
+  margin-left: -10%;
+  height: 45px;
+  top: 50%;
+  margin-top: -22.5px;
+}
+
+.sc2iq-test__actions {
+  margin: 1em 0;
+}
