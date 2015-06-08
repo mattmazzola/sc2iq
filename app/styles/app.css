@@ -1,5 +1,3 @@
-
-
 .sc2iq-question {
   border-top: 1px solid #cecece;
 }
@@ -14,10 +12,16 @@
   padding: 0;
   margin: 0;
 }
-
-
 .sc2iq-question__answers {
-  border-top: 1px solid #f1f1f1;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-in-out;
+}
+.sc2iq-question__answers--open {
+  max-height: 500px;
+}
+.sc2iq-question__answers-internal {
+  border-top: 1px solid #cecece;
   padding: 1em 0;
 }
 
@@ -47,6 +51,18 @@
   padding: 1em 0;
 }
 
+
+.sc2iq-question-form {
+
+}
+.sc2iq-question-form__content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-in-out;
+}
+.sc2iq-question-form__content--open {
+  max-height: 1000px;
+}
 .input-group-range {
     border: 1px solid #ccc;
     border-radius: 5px;

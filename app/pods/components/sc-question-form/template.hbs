@@ -1,4 +1,4 @@
-<div class="sc-questionForm">
+<div class="sc2iq-question-form">
   <form class="form-horizontal" role="form" {{action "submit" on="submit"}}>
       <div class="form-group">
         <label for="question" class="col-sm-3 control-label"><span class="glyphicon glyphicon-edit"></span> Propose New Question:</label>
@@ -13,10 +13,10 @@
           }}
         </div>
       </div>
-      <div class="sc-questionForm__content {{unless isExpanded 'hidden'}}">
+      <div class="sc2iq-question-form__content {{if isExpanded 'sc2iq-question-form__content--open'}}">
         <div class="form-group">
-          <label for="answer1" class="col-xs-12 col-sm-3 control-label">Correct Answer:</label>
-          <div class="col-xs-11 col-sm-9">
+          <label for="answer1" class="col-sm-3 control-label">Correct Answer:</label>
+          <div class="col-sm-9">
               {{input type="text" class="form-control" id="answer1" placeholder="Answer 1" required="required" value=question.answer1}}
           </div>
         </div>
@@ -24,20 +24,20 @@
           <hr />
         </div>
         <div class="form-group">
-          <label for="answer2" class="col-xs-12 col-sm-3 control-label">Answer 2</label>
-          <div class="col-xs-11 col-sm-9">
+          <label for="answer2" class="col-sm-3 control-label">Answer 2</label>
+          <div class="col-sm-9">
             {{input type="text" class="form-control" id="answer2" placeholder="Answer 2" required="required" value=question.answer2}}
           </div>
         </div>
         <div class="form-group">
-          <label for="answer3" class="col-xs-12 col-sm-3 control-label">Answer 3</label>
-          <div class="col-xs-11 col-sm-9">
+          <label for="answer3" class="col-sm-3 control-label">Answer 3</label>
+          <div class="col-sm-9">
               {{input type="text" class="form-control" id="answer3" placeholder="Answer 3" required="required" value=question.answer3}}
           </div>
         </div>
         <div class="form-group">
-          <label for="answer4" class="col-xs-12 col-sm-3 control-label">Answer 4</label>
-          <div class="col-xs-11 col-sm-9">
+          <label for="answer4" class="col-sm-3 control-label">Answer 4</label>
+          <div class="col-sm-9">
               {{input type="text" class="form-control" id="answer4" placeholder="Answer 4" required="required" value=question.answer4}}
           </div>
         </div>
