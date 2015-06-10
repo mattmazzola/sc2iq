@@ -2,7 +2,7 @@
 
   <div>
     <div class="sc2iq-test__time text-center">
-      <span class="glyphicon glyphicon-dashboard"></span> Time: {{sc-timer action="log" command=timerCommand }}
+      <span class="glyphicon glyphicon-dashboard"></span> Time: {{sc-timer action="timerRead" command=timerCommand }}
     </div>
 
     <div class="sc2iq-test__start-question {{if isStarted 'hidden'}}">
@@ -43,22 +43,22 @@
             <span class="big-q">Q</span><span class="text">{{currentQuestion.text}}</span>
         </div>
         <div class="panel-body">
-          <button type="button" class="btn btn-default btn-lg btn-block" {{action "submitAnswer" "1" question}}>
+          <button type="button" class="btn btn-default btn-lg btn-block" {{action "submitAnswer" 0 currentQuestion}}>
               <span class=" index">1</span>
               <span class="text">{{currentQuestion.answer1}}</span>
           </button>
 
-          <button type="button" class="btn btn-default btn-lg btn-block" {{action "submitAnswer" "2" question}}>
+          <button type="button" class="btn btn-default btn-lg btn-block" {{action "submitAnswer" 1 currentQuestion}}>
               <span class="index">2</span>
               <span class="text">{{currentQuestion.answer2}}</span>
           </button>
 
-          <button type="button" class="btn btn-default btn-lg btn-block" {{action "submitAnswer" "3" question}}>
+          <button type="button" class="btn btn-default btn-lg btn-block" {{action "submitAnswer" 2 currentQuestion}}>
               <span class="index">3</span>
               <span class="text">{{currentQuestion.answer3}}</span>
           </button>
 
-          <button type="button" class="btn btn-default btn-lg btn-block" {{action "submitAnswer" "4" question}}>
+          <button type="button" class="btn btn-default btn-lg btn-block" {{action "submitAnswer" 3 question}}>
               <span class="index">4</span>
               <span class="text">{{currentQuestion.answer4}}</span>
           </button>
@@ -73,6 +73,11 @@
         </div>
         <div class="panel-body">
           <dl>
+            {{#each answers as |answer|}}
+              <dt>Answer: {{moment answer.time.duration "mm:ss:SS"}}</dt>
+              <dd>{{answer.question.text}} - {{answer.answer}}</dd>
+            {{/each}}
+
             <dt>Correct:</dt>
             <dd>{{result.totalCorrect}}/{{result.totalQuestions}} {{result.percentageCorrect}}%</dd>
 

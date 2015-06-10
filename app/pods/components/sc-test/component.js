@@ -4,6 +4,7 @@ let computed = Ember.computed;
 export default Ember.Component.extend({
 
   // Defaults
+  answers: null,
   currentQuestionIndex: null,
   isFinished: false,
   isStarted: false,
@@ -19,6 +20,7 @@ export default Ember.Component.extend({
 
   // Observers
   setup: Ember.on('init', function () {
+    this.set('answers', []);
     this.set('isStarted', false);
     this.set('isFinished', false);
     this.set('timeElapsed', new Date());
@@ -38,10 +40,12 @@ export default Ember.Component.extend({
       this.set('timerCommand', 'start');
     },
 
-    submitAnswer() {
+    submitAnswer(answerIndex, question) {
       let maxIndex = this.get('questions.length') - 1;
 
       if( maxIndex > this.get('currentQuestionIndex')) {
+        this.answers.pushObject(Ember.Object.create({answer: answerIndex, question: question.toJSON(), time: null}));
+
         this.incrementProperty('currentQuestionIndex');
         this.set('timerCommand', 'read');
       }
@@ -49,11 +53,14 @@ export default Ember.Component.extend({
         this.set('timerCommand', 'pause');
         // this.set('timerCommand', 'read');
         this.set('isFinished', true);
+
+        this.calulateScores();
       }
     },
 
-    log(x) {
-      console.log(`log`, x);
+    timerRead(time) {
+      this.get('answers.lastObject').set('time', time);
+      console.log(`timerRead`, time);
     },
 
     sendCommand(command) {
@@ -62,6 +69,10 @@ export default Ember.Component.extend({
       }
       this.set('timerCommand', command);
     }
+  },
+
+  calulateScores() {
+
   }
 
 });
