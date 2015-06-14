@@ -5,7 +5,7 @@ var Router = Ember.Router.extend({
   location: config.locationType
 });
 
-export default Router.map(function() {
+Router.map(function() {
   this.route('questions', function() {
     this.route('question', { path: '/:question_id'});
     this.route('loading');
@@ -18,3 +18,5 @@ export default Router.map(function() {
   });
   this.route('test');
 });
+
+export default Router;
