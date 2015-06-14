@@ -8,9 +8,17 @@ export default Ember.Component.extend({
   currentQuestionIndex: null,
   isFinished: false,
   isStarted: false,
+  isTestDetailsVisible: false,
   questions: null,
-  timeElapsed: null,
-  timerCommand: '',
+
+  // Timer Component
+  isTimerStarted: false,
+  run: false,
+  startTime: null,
+  timeDifference: 0,
+  offset: 0,
+  interval: 10,
+
   // Single line CP
 
   // Multiline CP
@@ -22,57 +30,84 @@ export default Ember.Component.extend({
   setup: Ember.on('init', function () {
     this.set('answers', []);
     this.set('isStarted', false);
+    this.set('isTimerStarted', false);
     this.set('isFinished', false);
-    this.set('timeElapsed', new Date());
     this.set('currentQuestionIndex', 0);
-    this.set('timerCommand', '');
   }),
 
   // Actions
   actions: {
     restart() {
       this.setup();
-      this.set('timerCommand', 'reset');
+      this.resetTimer();
     },
 
     start() {
       this.set('isStarted', true);
-      this.set('timerCommand', 'start');
+      this.startTimer();
     },
 
     submitAnswer(answerIndex, question) {
       let maxIndex = this.get('questions.length') - 1;
 
+      // If we're not on the last question, save the answer and go to next question.
       if( maxIndex > this.get('currentQuestionIndex')) {
-        this.answers.pushObject(Ember.Object.create({answer: answerIndex, question: question.toJSON(), time: null}));
+        this.answers.pushObject(Ember.Object.create({
+          isCorrect: (answerIndex === (question.get('a') + 1)),
+          answer: answerIndex,
+          question: question,
+          time: this.get('timeDifference'),
+          duration: 0,
+          points: 0
+        }));
 
         this.incrementProperty('currentQuestionIndex');
-        this.set('timerCommand', 'read');
       }
+      // If we're on the last question pause timer, set finished.
       else if(maxIndex === this.get('currentQuestionIndex')) {
-        this.set('timerCommand', 'pause');
-        // this.set('timerCommand', 'read');
+        this.pauseTimer();
         this.set('isFinished', true);
-
         this.calulateScores();
       }
-    },
-
-    timerRead(time) {
-      this.get('answers.lastObject').set('time', time);
-      console.log(`timerRead`, time);
-    },
-
-    sendCommand(command) {
-      if('string' !== typeof command && command.length > 0) {
-        throw Error(`Command must be a non-empty string. You passed: ${command}`);
-      }
-      this.set('timerCommand', command);
     }
   },
 
   calulateScores() {
 
-  }
+  },
 
+
+  startTimer() {
+    this.set('startTime', new Date());
+    this.set('isTimerStarted', true);
+    this.set('run', true);
+    this.updateDisplayTime();
+  },
+
+  pauseTimer() {
+    this.set('run', false);
+  },
+
+  resumeTimer() {
+    this.set('offset', this.get('timeDifference'));
+    this.set('startTime', new Date());
+    this.set('run', true);
+    this.updateDisplayTime();
+  },
+
+  resetTimer() {
+    this.set('run', false);
+    this.set('isTimerStarted', false);
+    this.set('timeDifference', 0);
+    this.set('offset', 0);
+  },
+
+  updateDisplayTime() {
+    var timeDifference = (new Date() - this.get('startTime')) + this.get('offset');
+    this.set('timeDifference', timeDifference);
+
+    if(this.get('run')) {
+      Ember.run.later(this, this.updateDisplayTime, this.get('interval'));
+    }
+  }
 });

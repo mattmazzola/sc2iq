@@ -2,7 +2,7 @@
 
   <div>
     <div class="sc2iq-test__time text-center">
-      <span class="glyphicon glyphicon-dashboard"></span> Time: {{sc-timer action="timerRead" command=timerCommand }}
+      <span class="glyphicon glyphicon-dashboard"></span> Time: {{moment timeDifference "mm:ss.SS"}}
     </div>
 
     <div class="sc2iq-test__start-question {{if isStarted 'hidden'}}">
@@ -58,7 +58,7 @@
               <span class="text">{{currentQuestion.answer3}}</span>
           </button>
 
-          <button type="button" class="btn btn-default btn-lg btn-block" {{action "submitAnswer" 3 question}}>
+          <button type="button" class="btn btn-default btn-lg btn-block" {{action "submitAnswer" 3 currentQuestion}}>
               <span class="index">4</span>
               <span class="text">{{currentQuestion.answer4}}</span>
           </button>
@@ -72,24 +72,53 @@
           <span class="title text-center">Finished!</span>
         </div>
         <div class="panel-body">
-          <dl>
-            {{#each answers as |answer|}}
-              <dt>Answer: {{moment answer.time.duration "mm:ss:SS"}}</dt>
-              <dd>{{answer.question.text}} - {{answer.answer}}</dd>
-            {{/each}}
+          <p>
+            Percent: ({{result.totalCorrect}}/{{result.answers.length}}) {{result.percentageCorrect}}%
+          </p>
+          <p>
+            Score: 345
+          </p>
 
-            <dt>Correct:</dt>
-            <dd>{{result.totalCorrect}}/{{result.totalQuestions}} {{result.percentageCorrect}}%</dd>
+          <div class="row">
+            <div class="col-md-2">#</div>
+            <div class="col-md-2">
+              <span class="glyphicon glyphicon-ok"></span>
+            </div>
+            <div class="col-md-2">
+              <span class="glyphicon glyphicon-signal"></span> Difficulty
+            </div>
+            <div class="col-md-3">
+              <span class="glyphicon glyphicon-time"></span> Duration
+            </div>
+            <div class="col-md-3">
+              <span class="glyphicon glyphicon-plus"></span> Points
+            </div>
+          </div>
 
-            <dt>Score:</dt>
-            <dd>Abc 123</dd>
-          </dl>
+          {{#each answers key="@index" as |answer index|}}
+            <div class="row">
+              <div class="col-md-2">{{index}}</div>
+              <div class="col-md-2">
+                <span class="glyphicon {{ if answer.isCorrect 'glyphicon glyphicon-ok' 'glyphicon glyphicon-remove'}}"></span>
+              </div>
+              <div class="col-md-2">
+                {{answer.question.difficulty}}
+              </div>
+              <div class="col-md-3">
+                {{moment answer.time "mm:ss:SS"}}
+              </div>
+              <div class="col-md-3">
+                {{answer.points}}
+              </div>
+            </div>
+          {{/each}}
+
         </div>
       </div>
     </div>
 
     <div class="sc2iq-test__actions text-center">
-      <button type="button" class="btn btn-warning btn-lg" {{action "restart" }} disabled="{{unless isStarted 'disabled'}}">
+      <button type="button" class="btn {{if isFinished 'btn-success' 'btn-warning'}} btn-lg" {{action "restart" }} disabled="{{unless isStarted 'disabled'}}">
           <span class="glyphicon glyphicon-repeat"></span> Restart
       </button>
     </div>
