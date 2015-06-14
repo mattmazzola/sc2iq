@@ -138,3 +138,20 @@
 .sc2iq-test__actions {
   margin: 1em 0;
 }
+
+
+.sc2iq-question-results__headers {
+  padding: 1em 0;
+}
+
+.sc2iq-question-result {
+  border-top: 1px solid #cccccc;
+}
+.sc2iq-question-result__trigger {
+  cursor: pointer;
+  padding: 1em 0;
+}
+.sc2iq-question-result__details {
+  border-top: 1px solid #f1f1f1;
+  padding: 1em 0;
+}

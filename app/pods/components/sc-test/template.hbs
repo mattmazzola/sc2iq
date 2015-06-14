@@ -78,41 +78,29 @@
           <p>
             Score: 345
           </p>
+          <div class="container-fluid">
+            <div class="sc2iq-question-results__headers">
+              <div class="row">
+                <div class="col-md-2">#</div>
+                <div class="col-md-2">
+                  <span class="glyphicon glyphicon-ok"></span>
+                </div>
+                <div class="col-md-2">
+                  <span class="glyphicon glyphicon-signal"></span> Difficulty
+                </div>
+                <div class="col-md-3">
+                  <span class="glyphicon glyphicon-time"></span> Duration
+                </div>
+                <div class="col-md-3">
+                  <span class="glyphicon glyphicon-plus"></span> Points
+                </div>
+              </div>
+            </div>
 
-          <div class="row">
-            <div class="col-md-2">#</div>
-            <div class="col-md-2">
-              <span class="glyphicon glyphicon-ok"></span>
-            </div>
-            <div class="col-md-2">
-              <span class="glyphicon glyphicon-signal"></span> Difficulty
-            </div>
-            <div class="col-md-3">
-              <span class="glyphicon glyphicon-time"></span> Duration
-            </div>
-            <div class="col-md-3">
-              <span class="glyphicon glyphicon-plus"></span> Points
-            </div>
+            {{#each answers as |answer index|}}
+              {{sc-question-result result=answer index=index}}
+            {{/each}}
           </div>
-
-          {{#each answers key="@index" as |answer index|}}
-            <div class="row">
-              <div class="col-md-2">{{index}}</div>
-              <div class="col-md-2">
-                <span class="glyphicon {{ if answer.isCorrect 'glyphicon glyphicon-ok' 'glyphicon glyphicon-remove'}}"></span>
-              </div>
-              <div class="col-md-2">
-                {{answer.question.difficulty}}
-              </div>
-              <div class="col-md-3">
-                {{moment answer.time "mm:ss:SS"}}
-              </div>
-              <div class="col-md-3">
-                {{answer.points}}
-              </div>
-            </div>
-          {{/each}}
-
         </div>
       </div>
     </div>
