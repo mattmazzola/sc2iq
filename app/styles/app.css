@@ -140,7 +140,10 @@
 }
 
 
-.sc2iq-question-results__headers {
+.sc2iq-question-results__header {
+  padding: 1em 0;
+}
+.sc2iq-question-results__footer {
   padding: 1em 0;
 }
 

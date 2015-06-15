@@ -79,7 +79,7 @@
             Score: 345
           </p>
           <div class="container-fluid">
-            <div class="sc2iq-question-results__headers">
+            <div class="sc2iq-question-results__header">
               <div class="row">
                 <div class="col-md-2">#</div>
                 <div class="col-md-2">
@@ -100,6 +100,15 @@
             {{#each answers as |answer index|}}
               {{sc-question-result result=answer index=index}}
             {{/each}}
+
+            <div class="sc2iq-question-results__footer">
+              <div class="row">
+                <div class="col-md-3 col-md-offset-9">
+                  <b>187</b>
+                </div>
+              </div>
+            </div>
+
           </div>
         </div>
       </div>
