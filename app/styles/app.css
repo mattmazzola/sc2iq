@@ -153,5 +153,18 @@
 }
 .sc2iq-question-result__details {
   border-top: 1px solid #f1f1f1;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out;
+}
+.sc2iq-question-result__details--open {
+  max-height: 300px;
+}
+.sc2iq-question-result__details-inner {
   padding: 1em 0;
+}
+.sc2iq-question-result__details-graph {
+  padding: 2em;
+  border: 1px solid #ccc;
+  background: #f1f1f1;
 }
