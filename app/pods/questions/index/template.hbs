@@ -1,5 +1,11 @@
 {{sc-question-form action="saveQuestion"}}
 
+<div class="divider">
+  <hr />
+</div>
+
+{{sc-question-search action="search"}}
+
 {{#each model as |question|}}
   {{sc-question question=question}}
 {{/each}}

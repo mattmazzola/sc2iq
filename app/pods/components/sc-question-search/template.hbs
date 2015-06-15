@@ -1,0 +1,55 @@
+<div class="sc2iq-question-search">
+  <form class="form-horizontal" role="form" {{action "submit" on="submit"}}>
+      <div class="row">
+        <label for="querytext" class="col-xs-9"><span class="glyphicon glyphicon-edit"></span> Search:</label>
+        <div class="col-xs-3 text-right">
+          <button type="button" class="btn btn-link" {{action "toggle"}}>
+            <span class="glyphicon glyphicon-plus sc2iq-icon {{if isExpanded 'sc2iq-icon--rotate'}}" ></span>
+          </button>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-xs-12" {{action "expand" }}>
+          {{input type="text" class="form-control" id="querytext" placeholder="Search" required="required" value=querytext}}
+        </div>
+      </div>
+      <div class="sc2iq-question-search__content {{if isExpanded 'sc2iq-question-search__content--open'}}">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="includedtags" class="col-sm-3 control-label">Included:</label>
+              <div class="col-sm-9">
+                  {{input type="text" class="form-control" id="includedtags" placeholder="Included Tags" }}
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="excludedtags" class="col-sm-3 control-label">Excluded:</label>
+              <div class="col-sm-9">
+                  {{input type="text" class="form-control" id="excludedtags" placeholder="Excluded Tags" }}
+              </div>
+            </div>
+          </div>
+        </div>
+        <h3>Difficulty Range:</h3>
+        <div class="form-group">
+          <div class="col-xs-12">
+            <div class="input-group input-group-range">
+              <span class="input-group-addon">1</span>
+              {{input type="range" class="form-range" id="difficultyMin" step="1" min="1" max="10" value="1" placeholder="Difficulty" required="required" value=query.difficultyMin}}
+              <span class="input-group-addon input-group-range-value">{{query.difficultyMin}}</span>
+              <span class="input-group-addon">10</span>
+            </div>
+            <span class="help-block">Fill in Later</span>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="col-sm-offset-5 col-sm-7">
+            <button type="submit" class="btn btn-lg btn-primary">Submit</button>
+            <button type="reset" class="btn btn-lg btn-warning" {{action "reset"}}>Cancel</button>
+          </div>
+        </div>
+      </div>
+  </form>
+</div>

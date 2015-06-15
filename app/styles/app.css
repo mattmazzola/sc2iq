@@ -63,6 +63,19 @@
 .sc2iq-question-form__content--open {
   max-height: 1000px;
 }
+
+.sc2iq-question-search {
+
+}
+.sc2iq-question-search__content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-in-out;
+}
+.sc2iq-question-search__content--open {
+  max-height: 1000px;
+}
+
 .input-group-range {
     border: 1px solid #ccc;
     border-radius: 5px;

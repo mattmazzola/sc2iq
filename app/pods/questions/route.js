@@ -6,6 +6,9 @@ export default Ember.Route.extend(AuthenticatedRouteMixin, {
     saveQuestion(question) {
       var questionRecord = this.store.createRecord('question', question);
       questionRecord.save();
+    },
+    search(query) {
+      console.log(`query: ${query}`);
     }
   }
 });

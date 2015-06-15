@@ -14,9 +14,14 @@ export default Ember.Component.extend({
 	},
 
 	actions: {
+		toggle() {
+			this.toggleProperty('isExpanded');
+		},
+
 		expand() {
 			this.set('isExpanded', true);
 		},
+
 		reset() {
 			this.resetModel();
 			this.collapse();
