@@ -11,7 +11,10 @@ Router.map(function() {
     this.route('loading');
     this.route('error');
   });
-  this.route('scores');
+  this.route('scores', function () {
+    this.route('high');
+    this.route('me');
+  });
   this.route('contact');
   this.route('polls', function() {
     this.route('poll', { path: '/:poll_id'});

@@ -1,3 +1,21 @@
+.sc2iq-button {
+  padding: 1em;
+  text-decoration: none;
+}
+.sc2iq-button:hover,
+.sc2iq-button:visited,
+.sc2iq-button:active,
+.sc2iq-button:link {
+  text-decoration: none;
+}
+.sc2iq-button--default.active {
+  background: #e1e1e1;
+}
+.sc2iq-button--default {
+  border: 2px solid #cecece;
+  background: #f1f1f1;
+}
+
 .sc2iq-question {
   border-top: 1px solid #cecece;
 }
