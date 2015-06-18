@@ -20,6 +20,7 @@ Router.map(function() {
     this.route('poll', { path: '/:poll_id'});
   });
   this.route('test');
+  this.route('faqs');
 });
 
 export default Router;
