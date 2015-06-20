@@ -1,18 +1,13 @@
-<h1>My Scores</h1>
-<header>
-  <div class="container">
-    <div class="row">
-        <div class="col-sm-3 col-xs-6">Score</div>
-        <div class="col-sm-3 col-xs-6">User</div>
-        <div class="col-sm-3 hidden-xs">Duration</div>
-        <div class="col-sm-3 hidden-xs">Date</div>
-    </div>
+<header class="sc2iq-scores__header">
+  <div class="row">
+    <div class="col-sm-3 col-xs-6">Score</div>
+    <div class="col-sm-3 col-xs-6">User</div>
+    <div class="col-sm-3 hidden-xs">Duration</div>
+    <div class="col-sm-3 hidden-xs">Date</div>
   </div>
 </header>
-<section>
-  <div class="container">
-    {{#each model key="@guid" as |score|}}
-      {{sc-score score=score}}
-    {{/each}}
-  </div>
+<section class="sc2iq-scores__body">
+  {{#each model key="@guid" as |score|}}
+    {{sc-score score=score}}
+  {{/each}}
 </section>

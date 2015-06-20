@@ -202,3 +202,22 @@
   border: 1px solid #ccc;
   background: #f1f1f1;
 }
+
+
+.sc2iq-scores {
+}
+.sc2iq-scores__header {
+  padding: 1em 0;
+  font-weight: bold;
+}
+.sc2iq-scores__body {
+}
+
+/** Bootsrap Overrides */
+.nav-tabs > li > a.active {
+  color: #555;
+  cursor: default;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-bottom-color: transparent;
+}
