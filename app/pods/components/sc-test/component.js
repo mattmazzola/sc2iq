@@ -9,6 +9,7 @@ export default Ember.Component.extend({
   isFinished: false,
   isStarted: false,
   isTestDetailsVisible: false,
+  keyUp: null,
   questions: null,
 
   // Timer Component
@@ -35,6 +36,57 @@ export default Ember.Component.extend({
     this.set('currentQuestionIndex', 0);
   }),
 
+  setupKeyBindings: Ember.on('didInsertElement', function () {
+    Ember.Logger.log('setupKeyBindings: ');
+
+    var submitAnswer1 = () => {
+      this.submitAnswer(1, this.get('currentQuestion'));
+    };
+    var submitAnswer2 = () => {
+      this.submitAnswer(2, this.get('currentQuestion'));
+    };
+    var submitAnswer3 = () => {
+      this.submitAnswer(3, this.get('currentQuestion'));
+    };
+    var submitAnswer4 = () => {
+      this.submitAnswer(4, this.get('currentQuestion'));
+    };
+    var beginTest = () => {
+      this.startTest();
+    };
+
+    var keyUpEventToActionMap = {};
+    keyUpEventToActionMap['49'] = submitAnswer1;
+    keyUpEventToActionMap['97'] = submitAnswer1;
+    keyUpEventToActionMap['50'] = submitAnswer2;
+    keyUpEventToActionMap['98'] = submitAnswer2;
+    keyUpEventToActionMap['51'] = submitAnswer3;
+    keyUpEventToActionMap['99'] = submitAnswer3;
+    keyUpEventToActionMap['52'] = submitAnswer4;
+    keyUpEventToActionMap['100'] = submitAnswer4;
+    keyUpEventToActionMap['66'] = beginTest;
+
+    this.set('keyUp', this.generateKeyHandler(keyUpEventToActionMap));
+    this.$(document).on('keyup', { _self: this }, this.keyUp);
+  }),
+
+  tearDownKeyBindings: Ember.on('willDestroyElement', function () {
+    this.$(document).off('keyup', this.keyUp);
+    this.set('keyUp', null);
+  }),
+
+  generateKeyHandler: function (eventToActionMap) {
+    var controller = this;
+    return function (event) {
+      if (eventToActionMap.hasOwnProperty(event.which)) {
+        var action = eventToActionMap[event.which];
+        if(typeof action === "function") {
+          action.call(controller);
+        }
+      }
+    };
+  },
+
   // Actions
   actions: {
     restart() {
@@ -42,33 +94,12 @@ export default Ember.Component.extend({
       this.resetTimer();
     },
 
-    start() {
-      this.set('isStarted', true);
-      this.startTimer();
+    startClicked() {
+      this.startTest();
     },
 
-    submitAnswer(answerIndex, question) {
-      let maxIndex = this.get('questions.length') - 1;
-
-      // If we're not on the last question, save the answer and go to next question.
-      if( maxIndex > this.get('currentQuestionIndex')) {
-        this.answers.pushObject(Ember.Object.create({
-          isCorrect: (answerIndex === (question.get('a') + 1)),
-          answer: answerIndex,
-          question: question,
-          time: this.get('timeDifference'),
-          duration: 0,
-          points: 0
-        }));
-
-        this.incrementProperty('currentQuestionIndex');
-      }
-      // If we're on the last question pause timer, set finished.
-      else if(maxIndex === this.get('currentQuestionIndex')) {
-        this.pauseTimer();
-        this.set('isFinished', true);
-        this.calulateScores();
-      }
+    submitAnswerClicked(answerIndex, question) {
+      this.submiAnswer(answerIndex, question);
     }
   },
 
@@ -76,12 +107,40 @@ export default Ember.Component.extend({
 
   },
 
+  startTest() {
+    this.set('isStarted', true);
+    this.startTimer();
+  },
 
   startTimer() {
     this.set('startTime', new Date());
     this.set('isTimerStarted', true);
     this.set('run', true);
     this.updateDisplayTime();
+  },
+
+  submitAnswer(answerIndex, question) {
+    let maxIndex = this.get('questions.length') - 1;
+
+    // If we're not on the last question, save the answer and go to next question.
+    if( maxIndex > this.get('currentQuestionIndex')) {
+      this.answers.pushObject(Ember.Object.create({
+        isCorrect: (answerIndex === (question.get('a') + 1)),
+        answer: answerIndex,
+        question: question,
+        time: this.get('timeDifference'),
+        duration: 0,
+        points: 0
+      }));
+
+      this.incrementProperty('currentQuestionIndex');
+    }
+    // If we're on the last question pause timer, set finished.
+    else if(maxIndex === this.get('currentQuestionIndex')) {
+      this.pauseTimer();
+      this.set('isFinished', true);
+      this.calulateScores();
+    }
   },
 
   pauseTimer() {
