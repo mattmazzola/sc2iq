@@ -37,8 +37,6 @@ export default Ember.Component.extend({
   }),
 
   setupKeyBindings: Ember.on('didInsertElement', function () {
-    Ember.Logger.log('setupKeyBindings: ');
-
     var submitAnswer1 = () => {
       this.submitAnswer(1, this.get('currentQuestion'));
     };
@@ -99,7 +97,7 @@ export default Ember.Component.extend({
     },
 
     submitAnswerClicked(answerIndex, question) {
-      this.submiAnswer(answerIndex, question);
+      this.submitAnswer(answerIndex, question);
     }
   },
 
