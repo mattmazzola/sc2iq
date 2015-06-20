@@ -1,0 +1,40 @@
+<div class="sc2iq-question-full">
+  <h3 class="sc2iq-question-full__title">{{question.text}}</h3>
+  <ul class="list-group">
+    <li class="list-group-item">
+      <span class="glyphicon glyphicon-ok"></span> {{question.answer1}}
+    </li>
+    <li class="list-group-item">
+      <span class="glyphicon glyphicon-remove"></span> {{question.answer2}}
+    </li>
+    <li class="list-group-item">
+      <span class="glyphicon glyphicon-remove"></span> {{question.answer3}}
+    </li>
+    <li class="list-group-item">
+      <span class="glyphicon glyphicon-remove"></span> {{question.answer4}}
+    </li>
+  </ul>
+  <div class="sc2iq-question-full__metadata">
+    <div class="row">
+      <div class="col-md-4">
+        <span class="difficulty"><strong>Difficulty:</strong> {{question.difficulty}}</span>
+      </div>
+      <div class="col-md-4">
+        <span class="completionRate"><strong>Avg. Correct:</strong> {{question.percentageCorrect}}</span>
+      </div>
+      <div class="col-md-4">
+        <span class="completionTime"><strong>Avg. Time to Complete:</strong> 12/102 - 9%</span>
+      </div>
+    </div>
+  </div>
+  <div class="sc2iq-question-full__tags">
+    <div class="row">
+      <div class="col-sm-1">Tags:</div>
+      <div class="col-sm-11">
+        {{#each tag in question.tags}}
+          <span class="tag"><span class="glyphicon glyphicon-tag"></span> {{tag}}</span>
+        {{/each}}
+      </div>
+    </div>
+  </div>
+</div>
