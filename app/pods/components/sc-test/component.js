@@ -22,6 +22,7 @@ export default Ember.Component.extend({
 
   // Single line CP
 
+
   // Multiline CP
   currentQuestion: computed('currentQuestionIndex', function () {
     return this.questions.objectAt(this.get('currentQuestionIndex'));
@@ -35,20 +36,33 @@ export default Ember.Component.extend({
     this.set('isFinished', false);
     this.set('currentQuestionIndex', 0);
 
+    var isTestRunning = () => ((this.get('isStarted') === true) && (this.get('isFinished') === false));
+    var isBeforeStart = () => (this.get('isStarted') === false) && (this.get('isFinished') === false);
+
     var submitAnswer1 = () => {
-      this.submitAnswer(1, this.get('currentQuestion'));
+      if(isTestRunning()) {
+        this.submitAnswer(1, this.get('currentQuestion'));
+      }
     };
     var submitAnswer2 = () => {
-      this.submitAnswer(2, this.get('currentQuestion'));
+      if(isTestRunning()) {
+        this.submitAnswer(2, this.get('currentQuestion'));
+      }
     };
     var submitAnswer3 = () => {
-      this.submitAnswer(3, this.get('currentQuestion'));
+      if(isTestRunning()) {
+        this.submitAnswer(3, this.get('currentQuestion'));
+      }
     };
     var submitAnswer4 = () => {
-      this.submitAnswer(4, this.get('currentQuestion'));
+      if(isTestRunning()) {
+        this.submitAnswer(4, this.get('currentQuestion'));
+      }
     };
     var beginTest = () => {
-      this.startTest();
+      if(isBeforeStart()) {
+        this.startTest();
+      }
     };
 
     var keyUpEventToActionMap = {};
