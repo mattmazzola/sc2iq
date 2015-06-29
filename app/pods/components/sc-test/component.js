@@ -34,9 +34,7 @@ export default Ember.Component.extend({
     this.set('isTimerStarted', false);
     this.set('isFinished', false);
     this.set('currentQuestionIndex', 0);
-  }),
 
-  setupKeyBindings: Ember.on('didInsertElement', function () {
     var submitAnswer1 = () => {
       this.submitAnswer(1, this.get('currentQuestion'));
     };
@@ -65,6 +63,9 @@ export default Ember.Component.extend({
     keyUpEventToActionMap['66'] = beginTest;
 
     this.set('keyUp', this.generateKeyHandler(keyUpEventToActionMap));
+  }),
+
+  setupKeyBindings: Ember.on('didInsertElement', function () {
     this.$(document).on('keyup', { _self: this }, this.keyUp);
   }),
 
