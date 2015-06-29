@@ -24,13 +24,13 @@
             <li>{{#link-to "contact"}}<span class="glyphicon glyphicon-pencil"></span> Contact{{/link-to}}</li>
           {{/if}}
         </ul>
-        <ul class="nav navbar-nav navbar-right">
+        <div class="sc2iq-nav__right">
           {{#if session.isAuthenticated}}
-            <li>
-              <a>{{#bs-button class="btn btn-danger btn-xs" action="logout"}}Logout{{/bs-button}}</a>
-            </li>
+              <span class="glyphicon glyphicon-user"></span> {{session.currentUser.displayName}} | {{session.currentUser.points}} - {{session.currentUser.votes}} {{#bs-button class="btn btn-danger btn-xs" action="logout"}}Logout{{/bs-button}}
+          {{else}}
+              You are not logged in.
           {{/if}}
-        </ul>
+        </div>
       </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
   </nav>

@@ -33,7 +33,8 @@ module.exports = function(environment) {
       authenticationRoute: 'index',
       // authorizer: 'simple-auth-authorizer:oauth2-bearer',
       crossOriginWhitelist: ['*'],
-      store: 'simple-auth-session-store:local-storage'
+      store: 'simple-auth-session-store:local-storage',
+      session: 'session:custom'
     }
   };
 

@@ -23,9 +23,7 @@ export default Base.extend({
     });
   },
   invalidate(session) {
-    return new Ember.RSVP.Promise((resolve, reject) => {
-      return resolve(firebase.unauth());
-    });
+    return Ember.RSVP.resolve(firebase.unauth());
   },
   restore(data) {
     return Ember.RSVP.resolve(data);

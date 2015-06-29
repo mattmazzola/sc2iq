@@ -9,11 +9,10 @@ export default Ember.Route.extend(ApplicationRouteMixin,{
     // },
     sessionAuthenticationSucceeded() {
       var secureSessionContent = this.get('session.content.secure');
-
-      this.saveUserIfNotFound(secureSessionContent);
+      return this.saveUserIfNotFound(secureSessionContent);
     },
     sessionAuthenticationFailed(error) {
-      console.error(error.message);
+      throw new Error(error.message);
     },
     logout() {
       this.get('session').invalidate();
@@ -22,14 +21,10 @@ export default Ember.Route.extend(ApplicationRouteMixin,{
 
   saveUserIfNotFound(secureSessionContent) {
     return this.store.find('user', secureSessionContent.uid)
-      .then(user  => {
-        Ember.Logger.log(`Found user: ${user}`);
-        return user;
-      }, (error) => {
-        Ember.Logger.log(`Couldn't find user: ${user}`);
-        var user = this.extractUserFromSession(secureSessionContent);
-
-        var newUser = this.store.createRecord('user', user);
+      .then(null, error => {
+        var userInfo = this.extractUserFromSession(secureSessionContent);
+        Ember.Logger.log(`System could not find user: ${user.displayName}. Saving user...`);
+        var newUser = this.store.createRecord('user', userInfo);
         return newUser.save();
       })
     ;
@@ -38,7 +33,10 @@ export default Ember.Route.extend(ApplicationRouteMixin,{
   extractUserFromSession(secureSessionContent) {
     var user = {
       id: secureSessionContent.uid,
-      provider: secureSessionContent.provider
+      provider: secureSessionContent.provider,
+      points: 0,
+      votes: 0,
+      rating: 0,
     };
 
     if(secureSessionContent.github) {
