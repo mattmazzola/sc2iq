@@ -26,7 +26,7 @@
         </ul>
         <div class="sc2iq-nav__right">
           {{#if session.isAuthenticated}}
-              <span class="glyphicon glyphicon-user"></span> {{session.currentUser.displayName}} | {{session.currentUser.points}} - {{session.currentUser.votes}} {{#bs-button class="btn btn-danger btn-xs" action="logout"}}Logout{{/bs-button}}
+              {{#link-to "profile"}}<span class="glyphicon glyphicon-user"></span> {{session.currentUser.displayName}}{{/link-to}} | {{session.currentUser.points}} - {{session.currentUser.votes}} {{#bs-button class="btn btn-danger btn-xs" action="logout"}}Logout{{/bs-button}}
           {{else}}
               You are not logged in.
           {{/if}}

@@ -21,6 +21,7 @@ Router.map(function() {
   });
   this.route('test');
   this.route('faqs');
+  this.route('profile');
 });
 
 export default Router;

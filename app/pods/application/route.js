@@ -16,14 +16,24 @@ export default Ember.Route.extend(ApplicationRouteMixin,{
     },
     logout() {
       this.get('session').invalidate();
+    },
+
+    saveUserProfile(userInfo) {
+      Ember.Logger.log(`applicationRoute#saveUserProfile: ${userInfo}`);
+
+      this.store.find('user', userInfo.get('uid'))
+        .then(user => {
+          user.setProperties(userInfo);
+          user.save();
+        });
     }
   },
 
   saveUserIfNotFound(secureSessionContent) {
     return this.store.find('user', secureSessionContent.uid)
-      .then(null, error => {
+      .then(null, () => {
         var userInfo = this.extractUserFromSession(secureSessionContent);
-        Ember.Logger.log(`System could not find user: ${user.displayName}. Saving user...`);
+        Ember.Logger.log(`System could not find user: ${userInfo.displayName}. Saving user...`);
         var newUser = this.store.createRecord('user', userInfo);
         return newUser.save();
       })
@@ -32,7 +42,8 @@ export default Ember.Route.extend(ApplicationRouteMixin,{
 
   extractUserFromSession(secureSessionContent) {
     var user = {
-      id: secureSessionContent.uid,
+      uid: secureSessionContent.uid,
+      imageUrl: '',
       provider: secureSessionContent.provider,
       points: 0,
       votes: 0,
@@ -47,6 +58,7 @@ export default Ember.Route.extend(ApplicationRouteMixin,{
     }
     else if(secureSessionContent.twitter) {
       user.displayName = secureSessionContent.twitter.displayName;
+      user.imageUrl = secureSessionContent.twitter.cachedUserProfile.profile_image_url_https;
     }
     else if(secureSessionContent.google) {
       user.displayName = secureSessionContent.google.displayName;
