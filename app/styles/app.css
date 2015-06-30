@@ -1,9 +1,47 @@
+.sc2iq-layout__subheader {
+  padding: 1em 0;
+  background-color: #f1f1f1;
+}
+.sc2iq-subheader {
+  display: flex;
+}
+.sc2iq-subheader__points {
+  flex: 1;
+}
+.sc2iq-subheader__votes {
+  flex: 1;
+}
+
 .sc2iq-nav__right {
   text-align: right;
   padding: 1em 0;
 }
 .navbar-collapse {
   margin-right: -15px;
+}
+
+
+
+.sc2iq-meter {
+  display: flex;
+}
+.sc2iq-meter__minimum {
+  padding: 0 1em;
+}
+.sc2iq-meter__maximum {
+  padding: 0 1em;
+}
+.sc2iq-meter__guage {
+  border-radius: 4px;
+  border: 1px solid #444;
+  flex: 1;
+  display: flex;
+}
+.sc2iq-meter__guage-value {
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+  text-align: right;
+  background-color: #ccc;
 }
 
 .sc2iq-button {

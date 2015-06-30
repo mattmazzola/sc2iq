@@ -26,7 +26,7 @@
         </ul>
         <div class="sc2iq-nav__right">
           {{#if session.isAuthenticated}}
-              {{#link-to "profile"}}<span class="glyphicon glyphicon-user"></span> {{session.currentUser.displayName}}{{/link-to}} | {{session.currentUser.points}} - {{session.currentUser.votes}} {{#bs-button class="btn btn-danger btn-xs" action="logout"}}Logout{{/bs-button}}
+              {{#bs-button class="btn btn-danger btn-xs" action="logout"}}Logout{{/bs-button}} {{#link-to "profile"}}{{session.currentUser.displayName}} <img src="{{session.currentUser.imageUrl}}" height="20px" width="auto" alt="Profile Picture of {{session.currentUser.displayName}}" />{{/link-to}}
           {{else}}
               You are not logged in.
           {{/if}}
@@ -35,6 +35,18 @@
     </div><!-- /.container-fluid -->
   </nav>
 </header>
+<div class="sc2iq-layout__subheader">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6">
+        {{sc-points-meter min=0 max=100 value=87 }}
+      </div>
+      <div class="col-md-6 text-right">
+        {{sc-votes votesSpendable=3 votesTotal=session.currentUser.votes }}
+      </div>
+    </div>
+  </div>
+</div>
 
 
 <main class="sc2iq-main">
