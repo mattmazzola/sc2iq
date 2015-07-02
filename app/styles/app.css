@@ -1,5 +1,58 @@
+a:hover,
+a:active,
+a:visited,
+a:link {
+  text-decoration: none;
+}
+
+
+.sc2iq-footer {
+  background-color: #ececec;
+  padding: 2em;
+  margin-top: 2em;
+}
+
+.sc2iq-navbar {
+  display: flex;
+}
+.sc2iq-navbar__logo {
+}
+.sc2iq-navbar__links {
+  flex: 1;
+  display: flex;
+}
+.sc2iq-navbar__userdata {
+}
+
+
+.sc2iq-navbar-userdata {
+  display: flex;
+}
+.sc2iq-navbar-userdata__text {
+  padding: 1em;
+  flex: 1;
+}
+.sc2iq-navbar-userdata__image {
+  width: 4em;
+  display: flex;
+}
+.sc2iq-navbar-userdata__image > div{
+  width: 100%;
+}
+
+
+.sc2iq-navbar-links {
+  display: flex;
+}
+.sc2iq-navbar-links__link {
+  padding: 1em 1.5em;
+}
+.sc2iq-navbar-links__link:hover {
+  background: #f1f1f1;
+}
+
 .sc2iq-layout__subheader {
-  padding: 1em 0;
+  padding: 2em 0;
   background-color: #f1f1f1;
 }
 .sc2iq-subheader {
@@ -12,14 +65,17 @@
   flex: 1;
 }
 
-.sc2iq-nav__right {
-  text-align: right;
-  padding: 1em 0;
+
+.sc2iq-section {
+  padding: 2em 0;
 }
-.navbar-collapse {
-  margin-right: -15px;
+.sc2iq-section--search {
+  background-color: #f1f1f1;
 }
 
+.form-group--last {
+  margin-bottom: 0;
+}
 
 
 .sc2iq-meter {

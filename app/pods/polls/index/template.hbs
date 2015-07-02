@@ -1,5 +1,11 @@
-{{sc-poll-form action="savePoll"}}
+<div class="sc2iq-section">
+  <div class="container">
+    {{sc-poll-form action="savePoll"}}
+  </div>
+</div>
 
 {{#each model as |poll|}}
-  {{sc-poll poll=poll}}
+  <div class="container">
+    {{sc-poll poll=poll}}
+  </div>
 {{/each}}

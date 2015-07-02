@@ -8,7 +8,7 @@
           </button>
         </div>
       </div>
-      <div class="form-group">
+      <div class="form-group {{unless isExpanded 'form-group--last'}}">
         <div class="col-xs-12" {{action "expand" }}>
           {{textarea
             class="form-control question-textarea"

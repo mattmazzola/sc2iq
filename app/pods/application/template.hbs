@@ -1,56 +1,61 @@
 <header class="sc2iq-header">
-  <nav class="navbar navbar-default">
-    <div class="container">
-      <!-- Brand and toggle get grouped for better mobile display -->
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-          <span class="sr-only">Toggle navigation</span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
+  <div class="container">
+
+    <nav class="sc2iq-navbar">
+      <div class="sc2iq-navbar__logo">
         {{#link-to "index" class="navbar-brand"}}SC2IQ{{/link-to}}
       </div>
 
-      <!-- Collect the nav links, forms, and other content for toggling -->
-      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <ul class="nav navbar-nav">
+      <div class="sc2iq-navbar__links">
+        <div class="sc2iq-navbar-links">
           {{#if session.isAuthenticated}}
-            <li>{{#link-to "test"}}<span class="glyphicon glyphicon-play"></span> Test{{/link-to}}</li>
-            <li>{{#link-to "questions" }}<span class="glyphicon glyphicon-list"></span> Questions{{/link-to}}</li>
-            <li>{{#link-to "scores"}}<span class="glyphicon glyphicon-sort-by-attributes-alt"></span> Scores{{/link-to}}</li>
-            <li>{{#link-to "polls"}}<span class="glyphicon glyphicon-equalizer"></span> Polls{{/link-to}}</li>
-            <li>{{#link-to "faqs"}}<span class="glyphicon glyphicon-question-sign"></span> FAQs{{/link-to}}</li>
-            <li>{{#link-to "contact"}}<span class="glyphicon glyphicon-pencil"></span> Contact{{/link-to}}</li>
-          {{/if}}
-        </ul>
-        <div class="sc2iq-nav__right">
-          {{#if session.isAuthenticated}}
-              {{#bs-button class="btn btn-danger btn-xs" action="logout"}}Logout{{/bs-button}} {{#link-to "profile"}}{{session.currentUser.displayName}} <img src="{{session.currentUser.imageUrl}}" height="20px" width="auto" alt="Profile Picture of {{session.currentUser.displayName}}" />{{/link-to}}
-          {{else}}
-              You are not logged in.
+            {{#link-to "test" class="sc2iq-navbar-links__link"}}<span class="glyphicon glyphicon-play"></span><span class="hidden-xs hidden-sm"> Test</span>{{/link-to}}
+            {{#link-to "questions" class="sc2iq-navbar-links__link"}}<span class="glyphicon glyphicon-list"></span><span class="hidden-xs hidden-sm"> Questions</span>{{/link-to}}
+            {{#link-to "scores" class="sc2iq-navbar-links__link"}}<span class="glyphicon glyphicon-sort-by-attributes-alt"></span><span class="hidden-xs hidden-sm"> Scores</span>{{/link-to}}
+            {{#link-to "polls" class="sc2iq-navbar-links__link"}}<span class="glyphicon glyphicon-equalizer"></span><span class="hidden-xs hidden-sm"> Polls</span>{{/link-to}}
+            {{#link-to "faqs" class="sc2iq-navbar-links__link"}}<span class="glyphicon glyphicon-question-sign"></span><span class="hidden-xs hidden-sm"> FAQs</span>{{/link-to}}
+            {{#link-to "contact" class="sc2iq-navbar-links__link"}}<span class="glyphicon glyphicon-pencil"></span><span class="hidden-xs hidden-sm"> Contact</span>{{/link-to}}
           {{/if}}
         </div>
-      </div><!-- /.navbar-collapse -->
-    </div><!-- /.container-fluid -->
-  </nav>
+      </div>
+
+      <div class="sc2iq-navbar__userdata">
+        <div class="sc2iq-navbar-userdata">
+          <div class="sc2iq-navbar-userdata__text">
+            {{#if session.isAuthenticated}}
+                {{#bs-button class="btn btn-default btn-xs" action="logout"}}Logout{{/bs-button}} {{#link-to "profile"}}{{session.currentUser.displayName}}{{/link-to}}
+            {{else}}
+                You are not logged in.
+            {{/if}}
+          </div>
+          {{#if session.isAuthenticated}}
+              {{#link-to "profile" tagName="div" class="sc2iq-navbar-userdata__image" }}
+                <div style="background-image: url('{{session.currentUser.imageUrl}}'); background-size: cover;"></div>
+              {{/link-to}}
+          {{/if}}
+        </div>
+      </div>
+    </nav>
+
+  </div>
 </header>
 <div class="sc2iq-layout__subheader">
   <div class="container">
     <div class="row">
-      <div class="col-md-6">
+      <div class="col-xs-8 col-sm-6">
         {{sc-points-meter min=0 max=100 value=87 }}
       </div>
-      <div class="col-md-6 text-right">
+      <div class="col-xs-4 col-sm-6 text-right">
         {{sc-votes votesSpendable=3 votesTotal=session.currentUser.votes }}
       </div>
     </div>
   </div>
 </div>
 
-
-<main class="sc2iq-main">
-  <div class="container">
-    {{outlet}}
-  </div>
+<main class="sc2iq-section--main">
+  {{outlet}}
 </main>
+
+<div class="sc2iq-footer text-center">
+  SC2IQ
+</div>

@@ -1,29 +1,31 @@
-{{#if session.isAuthenticated}}
-  <h3>Logged in as, {{session.currentUser.displayName}}</h3>
-  {{#link-to "test" tagName="button" class="btn btn-block btn-primary btn-lg"}}
-    <span class="glyphicon glyphicon-play"></span> Test
-  {{/link-to}}
+<div class="container">
+  {{#if session.isAuthenticated}}
+    <h3>Logged in as, {{session.currentUser.displayName}}</h3>
+    {{#link-to "test" tagName="button" class="btn btn-block btn-primary btn-lg"}}
+      <span class="glyphicon glyphicon-play"></span> Test
+    {{/link-to}}
 
-  {{#link-to "questions" tag="button" class="btn btn-block btn-default btn-lg"}}
-    <span class="glyphicon glyphicon-list"></span> Questions
-  {{/link-to}}
-  {{#link-to "scores" tag="button" class="btn btn-block btn-default btn-lg"}}
-    <span class="glyphicon glyphicon-sort-by-attributes-alt"></span> Scores
-  {{/link-to}}
-  {{#link-to "scores" tag="button" class="btn btn-block btn-default btn-lg"}}
-    <span class="glyphicon glyphicon-equalizer"></span> Polls
-  {{/link-to}}
-  {{#link-to "faqs" tag="button" class="btn btn-block btn-default btn-lg"}}
-    <span class="glyphicon glyphicon-question-sign"></span> FAQs
-  {{/link-to}}
-  {{#link-to "contact" tag="button" class="btn btn-block btn-default btn-lg"}}
-    <span class="glyphicon glyphicon-pencil"></span> Contact
-  {{/link-to}}
+    {{#link-to "questions" tag="button" class="btn btn-block btn-default btn-lg"}}
+      <span class="glyphicon glyphicon-list"></span> Questions
+    {{/link-to}}
+    {{#link-to "scores" tag="button" class="btn btn-block btn-default btn-lg"}}
+      <span class="glyphicon glyphicon-sort-by-attributes-alt"></span> Scores
+    {{/link-to}}
+    {{#link-to "scores" tag="button" class="btn btn-block btn-default btn-lg"}}
+      <span class="glyphicon glyphicon-equalizer"></span> Polls
+    {{/link-to}}
+    {{#link-to "faqs" tag="button" class="btn btn-block btn-default btn-lg"}}
+      <span class="glyphicon glyphicon-question-sign"></span> FAQs
+    {{/link-to}}
+    {{#link-to "contact" tag="button" class="btn btn-block btn-default btn-lg"}}
+      <span class="glyphicon glyphicon-pencil"></span> Contact
+    {{/link-to}}
 
-{{else}}
-  <h3>Login</h3>
-  <button type="button" class="btn btn-primary btn-block" {{action "facebookLoginClicked"}}>Facebook</button>
-  <button type="button" class="btn btn-default btn-block" {{action "twitterLoginClicked"}}>Twitter</button>
-  <button type="button" class="btn btn-default btn-block" {{action "githubLoginClicked"}}>GitHub</button>
-  <button type="button" class="btn btn-default btn-block" {{action "googleLoginClicked"}}>Google</button>
-{{/if}}
+  {{else}}
+    <h3>Login</h3>
+    <button type="button" class="btn btn-primary btn-block" {{action "facebookLoginClicked"}}>Facebook</button>
+    <button type="button" class="btn btn-default btn-block" {{action "twitterLoginClicked"}}>Twitter</button>
+    <button type="button" class="btn btn-default btn-block" {{action "githubLoginClicked"}}>GitHub</button>
+    <button type="button" class="btn btn-default btn-block" {{action "googleLoginClicked"}}>Google</button>
+  {{/if}}
+</div>

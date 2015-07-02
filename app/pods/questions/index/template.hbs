@@ -1,11 +1,17 @@
-{{sc-question-form action="saveQuestion"}}
-
-<div class="divider">
-  <hr />
+<div class="sc2iq-section sc2iq-section--question-form">
+  <div class="container">
+    {{sc-question-form action="saveQuestion"}}
+  </div>
 </div>
 
-{{sc-question-search action="search"}}
+<div class="sc2iq-section sc2iq-section--search">
+  <div class="container">
+    {{sc-question-search action="search"}}
+  </div>
+</div>
 
 {{#each model as |question|}}
-  {{sc-question question=question}}
+  <div class="container">
+    {{sc-question question=question}}
+  </div>
 {{/each}}

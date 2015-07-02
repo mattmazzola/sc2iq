@@ -1,6 +1,6 @@
 <div class="sc-pollForm">
   <form class="form-horizontal" role="form" {{action "submit" on="submit"}}>
-      <div class="form-group">
+      <div class="form-group {{unless isExpanded 'form-group--last'}}">
         <label for="title" class="col-sm-3 control-label"><span class="glyphicon glyphicon-edit"></span> Propose New Poll:</label>
         <div class="col-sm-9" {{action "expand" }}>
           {{input type="text" class="form-control" id="title" placeholder="Title" required="required" value=poll.title}}
