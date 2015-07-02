@@ -55,6 +55,7 @@ export default Ember.Route.extend(ApplicationRouteMixin,{
     }
     else if(secureSessionContent.facebook) {
       user.displayName = secureSessionContent.facebook.displayName;
+      user.imageUrl = secureSessionContent.facebook.cachedUserProfile.picture.data.url;
     }
     else if(secureSessionContent.twitter) {
       user.displayName = secureSessionContent.twitter.displayName;
