@@ -8,5 +8,6 @@ export default DS.Model.extend({
   answer4: DS.attr('string'),
   a: DS.attr('number', { defaultValue: 1 }),
   difficulty: DS.attr('number', { defaultValue: 2 }),
-  state: DS.attr('string', { defaultValue: 'Pending' })
+  state: DS.attr('string', { defaultValue: 'Pending' }),
+  author: DS.belongsTo('user')
 });

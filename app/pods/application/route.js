@@ -46,7 +46,9 @@ export default Ember.Route.extend(ApplicationRouteMixin,{
       imageUrl: '',
       provider: secureSessionContent.provider,
       points: 0,
-      votes: 0,
+      level: 1,
+      votesSpendable: 0,
+      votesTotal: 0,
       rating: 0,
     };
 
