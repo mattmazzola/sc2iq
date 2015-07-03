@@ -1,61 +1,63 @@
-<header class="sc2iq-header">
-  <div class="container">
+<div class="sc2iq-layout">
+  <header class="sc2iq-layout__header">
+    <div class="container">
 
-    <nav class="sc2iq-navbar">
-      <div class="sc2iq-navbar__logo">
-        {{#link-to "index" class="navbar-brand"}}SC2IQ{{/link-to}}
-      </div>
-
-      <div class="sc2iq-navbar__links">
-        <div class="sc2iq-navbar-links">
-          {{#if session.isAuthenticated}}
-            {{#link-to "test" class="sc2iq-navbar-links__link"}}<span class="glyphicon glyphicon-play"></span><span class="hidden-xs hidden-sm"> Test</span>{{/link-to}}
-            {{#link-to "questions" class="sc2iq-navbar-links__link"}}<span class="glyphicon glyphicon-list"></span><span class="hidden-xs hidden-sm"> Questions</span>{{/link-to}}
-            {{#link-to "scores" class="sc2iq-navbar-links__link"}}<span class="glyphicon glyphicon-sort-by-attributes-alt"></span><span class="hidden-xs hidden-sm"> Scores</span>{{/link-to}}
-            {{#link-to "polls" class="sc2iq-navbar-links__link"}}<span class="glyphicon glyphicon-equalizer"></span><span class="hidden-xs hidden-sm"> Polls</span>{{/link-to}}
-            {{#link-to "faqs" class="sc2iq-navbar-links__link"}}<span class="glyphicon glyphicon-question-sign"></span><span class="hidden-xs hidden-sm"> FAQs</span>{{/link-to}}
-            {{#link-to "contact" class="sc2iq-navbar-links__link"}}<span class="glyphicon glyphicon-pencil"></span><span class="hidden-xs hidden-sm"> Contact</span>{{/link-to}}
-          {{/if}}
+      <nav class="sc2iq-navbar">
+        <div class="sc2iq-navbar__logo">
+          {{#link-to "index" class="navbar-brand"}}SC2IQ{{/link-to}}
         </div>
-      </div>
 
-      <div class="sc2iq-navbar__userdata">
-        <div class="sc2iq-navbar-userdata">
-          <div class="sc2iq-navbar-userdata__text">
+        <div class="sc2iq-navbar__links">
+          <div class="sc2iq-navbar-links">
             {{#if session.isAuthenticated}}
-                {{#bs-button class="btn btn-default btn-xs" action="logout"}}Logout{{/bs-button}} {{#link-to "profile"}}{{session.currentUser.displayName}}{{/link-to}}
-            {{else}}
-                You are not logged in.
+              {{#link-to "test" class="sc2iq-navbar-links__link"}}<span class="glyphicon glyphicon-play"></span><span class="hidden-xs hidden-sm"> Test</span>{{/link-to}}
+              {{#link-to "questions" class="sc2iq-navbar-links__link"}}<span class="glyphicon glyphicon-list"></span><span class="hidden-xs hidden-sm"> Questions</span>{{/link-to}}
+              {{#link-to "scores" class="sc2iq-navbar-links__link"}}<span class="glyphicon glyphicon-sort-by-attributes-alt"></span><span class="hidden-xs hidden-sm"> Scores</span>{{/link-to}}
+              {{#link-to "polls" class="sc2iq-navbar-links__link"}}<span class="glyphicon glyphicon-equalizer"></span><span class="hidden-xs hidden-sm"> Polls</span>{{/link-to}}
+              {{#link-to "faqs" class="sc2iq-navbar-links__link"}}<span class="glyphicon glyphicon-question-sign"></span><span class="hidden-xs hidden-sm"> FAQs</span>{{/link-to}}
+              {{#link-to "contact" class="sc2iq-navbar-links__link"}}<span class="glyphicon glyphicon-pencil"></span><span class="hidden-xs hidden-sm"> Contact</span>{{/link-to}}
             {{/if}}
           </div>
-          {{#if session.isAuthenticated}}
-              {{#link-to "profile" tagName="div" class="sc2iq-navbar-userdata__image" }}
-                <div style="background-image: url('{{session.currentUser.imageUrl}}'); background-size: cover;"></div>
-              {{/link-to}}
-          {{/if}}
         </div>
-      </div>
-    </nav>
 
-  </div>
-</header>
-<div class="sc2iq-layout__subheader">
-  <div class="container">
-    <div class="row">
-      <div class="col-xs-8 col-sm-6">
-        {{sc-points-meter min=0 max=100 value=87 }}
-      </div>
-      <div class="col-xs-4 col-sm-6 text-right">
-        {{sc-votes votesSpendable=session.currentUser.votes votesTotal=session.currentUser.votes }}
+        <div class="sc2iq-navbar__userdata">
+          <div class="sc2iq-navbar-userdata">
+            <div class="sc2iq-navbar-userdata__text">
+              {{#if session.isAuthenticated}}
+                  {{#bs-button class="btn btn-default btn-xs" action="logout"}}Logout{{/bs-button}} {{#link-to "profile"}}{{session.currentUser.displayName}}{{/link-to}}
+              {{else}}
+                  You are not logged in.
+              {{/if}}
+            </div>
+            {{#if session.isAuthenticated}}
+                {{#link-to "profile" tagName="div" class="sc2iq-navbar-userdata__image" }}
+                  <div style="background-image: url('{{session.currentUser.imageUrl}}'); background-size: cover;"></div>
+                {{/link-to}}
+            {{/if}}
+          </div>
+        </div>
+      </nav>
+
+    </div>
+  </header>
+  <div class="sc2iq-layout__subheader">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-8 col-sm-6">
+          {{sc-points-meter min=0 max=100 value=87 }}
+        </div>
+        <div class="col-xs-4 col-sm-6 text-right">
+          {{sc-votes votesSpendable=session.currentUser.votes votesTotal=session.currentUser.votes }}
+        </div>
       </div>
     </div>
   </div>
-</div>
 
-<main class="sc2iq-section--main">
-  {{outlet}}
-</main>
+  <main class="sc2iq-layout__main">
+    {{outlet}}
+  </main>
 
-<div class="sc2iq-footer text-center">
-  SC2IQ
+  <div class="sc2iq-layout__footer text-center">
+    SC2IQ
+  </div>
 </div>

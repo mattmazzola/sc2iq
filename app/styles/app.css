@@ -5,8 +5,19 @@ a:link {
   text-decoration: none;
 }
 
-
-.sc2iq-footer {
+.sc2iq-layout {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+.sc2iq-layout__header {
+}
+.sc2iq-layout__subheader {
+}
+.sc2iq-layout__main {
+  flex: 1;
+}
+.sc2iq-layout__footer {
   background-color: #ececec;
   padding: 2em;
   margin-top: 2em;
