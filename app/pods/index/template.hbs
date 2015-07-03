@@ -1,31 +1,57 @@
 <div class="container">
   {{#if session.isAuthenticated}}
-    <h3>Logged in as, {{session.currentUser.displayName}}</h3>
-    {{#link-to "test" tagName="button" class="btn btn-block btn-primary btn-lg"}}
-      <span class="glyphicon glyphicon-play"></span> Test
+    {{#link-to "test" tagName="button" class="sc2iq-button sc2iq-button--primary sc2iq-button--large sc2iq-button--block"}}
+      <div class="sc2iq-button__inner">
+        <span class="glyphicon glyphicon-play"></span> Test
+      </div>
     {{/link-to}}
-
-    {{#link-to "questions" tag="button" class="btn btn-block btn-default btn-lg"}}
-      <span class="glyphicon glyphicon-list"></span> Questions
+    {{#link-to "questions" tagName="button" class="sc2iq-button sc2iq-button--primary sc2iq-button--block"}}
+      <div class="sc2iq-button__inner">
+        <span class="glyphicon glyphicon-list"></span> Questions
+      </div>
     {{/link-to}}
-    {{#link-to "scores" tag="button" class="btn btn-block btn-default btn-lg"}}
-      <span class="glyphicon glyphicon-sort-by-attributes-alt"></span> Scores
+    {{#link-to "scores" tagName="button" class="sc2iq-button sc2iq-button--primary sc2iq-button--block"}}
+      <div class="sc2iq-button__inner">
+        <span class="glyphicon glyphicon-sort-by-attributes-alt"></span> Scores
+      </div>
     {{/link-to}}
-    {{#link-to "scores" tag="button" class="btn btn-block btn-default btn-lg"}}
-      <span class="glyphicon glyphicon-equalizer"></span> Polls
+    {{#link-to "scores" tagName="button" class="sc2iq-button sc2iq-button--primary sc2iq-button--block"}}
+      <div class="sc2iq-button__inner">
+        <span class="glyphicon glyphicon-equalizer"></span> Polls
+      </div>
     {{/link-to}}
-    {{#link-to "faqs" tag="button" class="btn btn-block btn-default btn-lg"}}
-      <span class="glyphicon glyphicon-question-sign"></span> FAQs
+    {{#link-to "faqs" tagName="button" class="sc2iq-button sc2iq-button--primary sc2iq-button--block"}}
+      <div class="sc2iq-button__inner">
+        <span class="glyphicon glyphicon-question-sign"></span> FAQs
+      </div>
     {{/link-to}}
-    {{#link-to "contact" tag="button" class="btn btn-block btn-default btn-lg"}}
-      <span class="glyphicon glyphicon-pencil"></span> Contact
+    {{#link-to "contact" tagName="button" class="sc2iq-button sc2iq-button--primary sc2iq-button--block"}}
+      <div class="sc2iq-button__inner">
+        <span class="glyphicon glyphicon-pencil"></span> Contact
+      </div>
     {{/link-to}}
 
   {{else}}
     <h3>Login</h3>
-    <button type="button" class="btn btn-primary btn-block" {{action "facebookLoginClicked"}}>Facebook</button>
-    <button type="button" class="btn btn-default btn-block" {{action "twitterLoginClicked"}}>Twitter</button>
-    <button type="button" class="btn btn-default btn-block" {{action "githubLoginClicked"}}>GitHub</button>
-    <button type="button" class="btn btn-default btn-block" {{action "googleLoginClicked"}}>Google</button>
+    <button type="button" class="sc2iq-button sc2iq-button--primary sc2iq-button--large sc2iq-button--block sc2iq-button--facebook" {{action "facebookLoginClicked"}}>
+      <div class="sc2iq-button__inner">
+        {{fa-icon "facebook"}} Facebook
+      </div>
+    </button>
+    <button type="button" class="sc2iq-button sc2iq-button--primary sc2iq-button--large sc2iq-button--block sc2iq-button--twitter" {{action "twitterLoginClicked"}}>
+      <div class="sc2iq-button__inner">
+        {{fa-icon "twitter"}} Twitter
+      </div>
+    </button>
+    <button type="button" class="sc2iq-button sc2iq-button--primary sc2iq-button--large sc2iq-button--block sc2iq-button--google" {{action "githubLoginClicked"}}>
+      <div class="sc2iq-button__inner">
+        {{fa-icon "github"}} GitHub
+      </div>
+    </button>
+    <button type="button" class="sc2iq-button sc2iq-button--primary sc2iq-button--large sc2iq-button--block sc2iq-button--google" {{action "googleLoginClicked"}}>
+      <div class="sc2iq-button__inner">
+        {{fa-icon "google-plus-square"}} Google
+      </div>
+    </button>
   {{/if}}
 </div>

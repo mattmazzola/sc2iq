@@ -77,6 +77,72 @@ a:link {
 }
 
 
+.sc2iq-button +
+.sc2iq-button {
+  margin-top: 5px;
+}
+
+.sc2iq-button {
+  display: inline-block;
+  padding: 6px 12px;
+  margin-bottom: 0;
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 1.42857143;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  background-image: none;
+  border: 1px solid transparent;
+  border-radius: 4px;
+}
+.sc2iq-button:hover {
+  background-color: #eaeaea;
+}
+.sc2iq-button__inner {
+  min-width: 100px;
+  display: inline-block;
+  text-align: left;
+}
+.sc2iq-button__inner span.glyphicon {
+  margin-right: 1em;
+}
+.sc2iq-button--primary {
+  color: #333;
+  background-color: #fff;
+  border-color: #ccc;
+}
+.sc2iq-button--block {
+  display: block;
+  width: 100%;
+}
+.sc2iq-button--large {
+  padding: 10px 16px;
+  font-size: 18px;
+  line-height: 1.3333333;
+  border-radius: 6px;
+}
+.sc2iq-button--facebook {
+  background-color: blue;
+}
+.sc2iq-button--twitter {
+  background-color: teal;
+}
+.sc2iq-button--github {
+  background-color: pink;
+}
+.sc2iq-button--google {
+  background-color: red;
+}
+
+
 .sc2iq-section {
   padding: 2em 0;
 }
