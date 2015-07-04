@@ -130,16 +130,34 @@ a:link {
   border-radius: 6px;
 }
 .sc2iq-button--facebook {
-  background-color: blue;
+  background-color: #3b5998;
+  color: white;
+}
+.sc2iq-button--facebook:hover {
+  background-color: #4b69a8;
 }
 .sc2iq-button--twitter {
-  background-color: teal;
+  background-color: #55acee;
+  color: white;
+}
+.sc2iq-button-twitter:hover {
+  background-color: #69bf43;
+  color: orange;
 }
 .sc2iq-button--github {
-  background-color: pink;
+  background-color: #F012BE;
+  color: white;
 }
+.sc2iq-button--github:hover {
+  background-color: #B10DC9;
+}
+
 .sc2iq-button--google {
-  background-color: red;
+  background-color: #F44336;
+  color: white;
+}
+.sc2iq-button--google:hover {
+  background-color: #E53935;
 }
 
 
@@ -306,6 +324,8 @@ a:link {
 
 
 
+
+
 .sc2iq-score {
   border-top: 1px solid #cccccc;
 }
@@ -320,10 +340,10 @@ a:link {
 
 
 .sc2iq-test {
-
 }
 .sc2iq-test__time {
-  font-size: 2em;
+  font-size: 3em;
+  padding: 1em 0 1em 0;
 }
 .sc2iq-test__start-question {
   position: relative;
