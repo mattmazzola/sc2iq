@@ -1,17 +1,20 @@
 <div class="sc2iq-question-result">
   <div class="sc2iq-question-result__trigger" {{action "toggleDetails" }}>
     <div class="row">
-      <div class="col-md-2">{{index}}</div>
+      <div class="col-md-2">{{computedIndex}}</div>
       <div class="col-md-2">
-        <span class="glyphicon {{ if result.isCorrect 'glyphicon glyphicon-ok' 'glyphicon glyphicon-remove'}}"></span>
+        <span class="glyphicon {{ if result.isCorrect 'glyphicon glyphicon-ok text-success' 'glyphicon glyphicon-remove text-danger'}}"></span>
       </div>
       <div class="col-md-2">
         {{result.question.difficulty}}
       </div>
-      <div class="col-md-3">
+      <div class="col-md-2">
+        {{moment result.duration "mm:ss:SS"}}
+      </div>
+      <div class="col-md-2">
         {{moment result.time "mm:ss:SS"}}
       </div>
-      <div class="col-md-3">
+      <div class="col-md-2">
         {{result.points}}
       </div>
     </div>
@@ -32,8 +35,9 @@
             <div class="col-md-3">
               <b>Your Answer:</b>
             </div>
-            <div class="col-md-9">
+            <div class="col-md-9 {{ if result.isCorrect 'text-success' 'text-danger'}}">
               {{result.answerIndex}}
+              {{result.answer}}
             </div>
           </div>
           <div class="row">
@@ -41,7 +45,8 @@
               <b>Correct Answer:</b>
             </div>
             <div class="col-md-9">
-              {{result.answerIndex}}
+              {{result.question.a}}
+              {{result.question.correctAnswer}}
             </div>
           </div>
         </div>

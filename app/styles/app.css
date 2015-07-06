@@ -343,7 +343,7 @@ a:link {
 }
 .sc2iq-test__time {
   font-size: 3em;
-  padding: 1em 0 1em 0;
+  padding: 0.5em 0 1em 0;
 }
 .sc2iq-test__start-question {
   position: relative;

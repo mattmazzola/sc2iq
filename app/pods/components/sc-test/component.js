@@ -30,7 +30,12 @@ export default Ember.Component.extend({
 
   // Observers
   setup: Ember.on('init', function () {
-    this.set('answers', []);
+    if(Array.isArray(this.get('answers'))) {
+      this.get('answers').length = 0;
+    }
+    else {
+      this.set('answers', []);
+    }
     this.set('isStarted', false);
     this.set('isTimerStarted', false);
     this.set('isFinished', false);
@@ -134,18 +139,21 @@ export default Ember.Component.extend({
 
   submitAnswer(answerIndex, question) {
     let maxIndex = this.get('questions.length') - 1;
-
+    let previousAnswerTime = (this.get('currentQuestionIndex') === 0) ? 0 : this.answers.objectAt(this.get('currentQuestionIndex') - 1).get('time');
     // If we're not on the last question, save the answer and go to next question.
-    if( maxIndex > this.get('currentQuestionIndex')) {
-      this.answers.pushObject(Ember.Object.create({
-        isCorrect: (answerIndex === (question.get('a') + 1)),
-        answer: answerIndex,
-        question: question,
-        time: this.get('timeDifference'),
-        duration: 0,
-        points: 0
-      }));
+    let answer = Ember.Object.create({
+      isCorrect: (answerIndex === (question.get('a'))),
+      answer: question.get(`answer${answerIndex}`),
+      answerIndex: answerIndex,
+      question: question,
+      time: this.get('timeDifference'),
+      duration: this.get('timeDifference') - previousAnswerTime,
+      points: 10
+    });
 
+    this.answers.pushObject(answer);
+
+    if( maxIndex > this.get('currentQuestionIndex')) {
       this.incrementProperty('currentQuestionIndex');
     }
     // If we're on the last question pause timer, set finished.

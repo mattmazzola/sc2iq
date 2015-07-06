@@ -5,7 +5,7 @@ export default Ember.Component.extend({
   isExpanded: false,
 
   // Singleline CP
-
+  computedIndex: Ember.computed('index', function (key, value) { return this.get('index') + 1; }),
   // Multiline CP
 
   // Observers

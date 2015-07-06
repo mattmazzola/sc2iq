@@ -9,5 +9,10 @@ export default DS.Model.extend({
   a: DS.attr('number', { defaultValue: 1 }),
   difficulty: DS.attr('number', { defaultValue: 2 }),
   state: DS.attr('string', { defaultValue: 'Pending' }),
-  author: DS.belongsTo('user')
+  author: DS.belongsTo('user'),
+
+  correctAnswer: Ember.computed('a', function (key, value) {
+    var correctAnswerIndex = this.get('a');
+    return this.get(`answer${correctAnswerIndex + 1}`);
+  })
 });
