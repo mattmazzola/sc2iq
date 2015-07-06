@@ -35,7 +35,7 @@
       <div class="tags row">
         <div class="col-sm-1">Tags:</div>
         <div class="col-sm-11">
-          {{#each tag in question.tags}}
+          {{#each question.tags as |tag| }}
           <span class="tag"><span class="glyphicon glyphicon-tag"></span> {{tag}}</span>
           {{/each}}
         </div>
