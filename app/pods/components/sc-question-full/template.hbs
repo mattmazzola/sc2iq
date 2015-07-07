@@ -1,18 +1,11 @@
-<div class="sc2iq-question-full">
+<div class="sc2iq-question-full {{if isEditMode 'hidden'}}">
   <h3 class="sc2iq-question-full__title">{{question.text}}</h3>
   <ul class="list-group">
-    <li class="list-group-item">
-      <span class="glyphicon glyphicon-ok"></span> {{question.answer1}}
-    </li>
-    <li class="list-group-item">
-      <span class="glyphicon glyphicon-remove"></span> {{question.answer2}}
-    </li>
-    <li class="list-group-item">
-      <span class="glyphicon glyphicon-remove"></span> {{question.answer3}}
-    </li>
-    <li class="list-group-item">
-      <span class="glyphicon glyphicon-remove"></span> {{question.answer4}}
-    </li>
+    {{#each answers as |answer| }}
+      <li class="list-group-item {{if answer.isCorrect 'bg-success text-success'}}">
+        <span class="glyphicon {{if answer.isCorrect 'glyphicon-ok' 'glyphicon-remove'}}"></span> {{answer.text}}
+      </li>
+    {{/each}}
   </ul>
   <div class="sc2iq-question-full__metadata">
     <div class="row">
@@ -38,3 +31,49 @@
     </div>
   </div>
 </div>
+
+<form class="sc2iq-question-full form-horizontal {{unless isEditMode 'hidden'}}">
+  <h3 class="sc2iq-question-full__title">
+    {{textarea value=question.text class="form-control"}}
+  </h3>
+  {{#each answers as |answer index| }}
+    <div class="form-group">
+      <label for="answer{{index}}" class="col-xs-1 control-label"><span class="glyphicon {{if answer.isCorrect 'glyphicon-ok' 'glyphicon-remove'}}"></span> {{index}}</label>
+      <div class="col-xs-11">
+        {{input type="text" class="form-control" value=answer.text}}
+      </div>
+    </div>
+  {{/each}}
+  <div class="sc2iq-question-full__metadata">
+    <div class="row">
+      <div class="col-md-4">
+        <span class="difficulty"><strong>Difficulty:</strong> {{question.difficulty}}</span>
+      </div>
+      <div class="col-md-4">
+        <span class="completionRate"><strong>Avg. Correct:</strong> {{question.percentageCorrect}}</span>
+      </div>
+      <div class="col-md-4">
+        <span class="completionTime"><strong>Avg. Time to Complete:</strong> 12/102 - 9%</span>
+      </div>
+    </div>
+  </div>
+  <div class="sc2iq-question-full__tags">
+    <div class="row">
+      <div class="col-sm-1">Tags:</div>
+      <div class="col-sm-11">
+        {{#each question.tags as |tag| }}
+          <span class="tag"><span class="glyphicon glyphicon-tag"></span> {{tag}}</span>
+        {{/each}}
+      </div>
+    </div>
+  </div>
+  <div class="">
+    <button type="submit" name="button" class="btn btn-success" {{action "submit" question}}>Submit Changes</button>
+  </div>
+</form>
+
+{{#if isCurrentUserAdmin}}
+  <div class="">
+    <button type="button" name="button" class="btn btn-primary" {{action "toggleProperty" "isEditMode"}}>Edit</button>
+  </div>
+{{/if}}

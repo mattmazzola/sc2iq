@@ -5,6 +5,11 @@ a:link {
   text-decoration: none;
 }
 
+/* Bootstrap Overrides */
+.list-group-item.bg-success {
+  background-color: #dff0d8;
+}
+
 .sc2iq-layout {
   display: flex;
   flex-direction: column;
