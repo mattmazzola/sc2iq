@@ -14,5 +14,9 @@ export default DS.Model.extend({
   correctAnswer: Ember.computed('a', function (key, value) {
     var correctAnswerIndex = this.get('a');
     return this.get(`answer${correctAnswerIndex + 1}`);
+  }),
+
+  answers: Ember.computed('a', function (key, value) {
+    return [this.get('answer1'), this.get('answer2'), this.get('answer3'), this.get('answer4')]
   })
 });

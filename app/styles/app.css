@@ -391,7 +391,7 @@ a:link {
   transition: max-height 0.3s ease-out;
 }
 .sc2iq-question-result__details--open {
-  max-height: 300px;
+  max-height: 600px;
 }
 .sc2iq-question-result__details-inner {
   padding: 1em 0;

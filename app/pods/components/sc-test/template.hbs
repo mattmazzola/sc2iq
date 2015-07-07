@@ -67,14 +67,7 @@
     </div>
 
     <div class="sc2iq-test__finished {{unless isFinished 'hidden'}}">
-      <div class="panel panel-default">
-        <div class="panel-heading text-center clearfix">
-          <span class="title text-center">Finished!</span>
-        </div>
-        <div class="panel-body">
-          {{sc-test-results answers=answers }}
-        </div>
-      </div>
+      {{sc-test-results answers=answers }}
     </div>
 
     <div class="sc2iq-test__actions text-center">

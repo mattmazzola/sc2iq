@@ -1,44 +1,51 @@
-<p>
-  Percent: ({{totalCorrect}}/{{answers.length}}) {{percentageCorrect}}%
-</p>
-<p>
-  Score: 345
-</p>
-<div class="container-fluid">
-  <div class="sc2iq-question-results__header">
-    <div class="row">
-      <div class="col-md-2">#</div>
-      <div class="col-md-2">
-        <span class="glyphicon glyphicon-ok"></span>
+<div class="panel panel-default">
+  <div class="panel-heading text-center clearfix">
+    <span class="title text-center">Finished!</span>
+  </div>
+  <div class="panel-body">
+    <p>
+      Percent: ({{totalCorrect}}/{{answers.length}}) {{percentageCorrect}}%
+    </p>
+    <p>
+      Score: 345
+    </p>
+    <div class="container-fluid">
+      <div class="sc2iq-question-results__header">
+        <div class="row">
+          <div class="col-md-2">#</div>
+          <div class="col-md-2">
+            <span class="glyphicon glyphicon-ok"></span>
+          </div>
+          <div class="col-md-2">
+            <span class="glyphicon glyphicon-signal"></span> Difficulty
+          </div>
+          <div class="col-md-2">
+            <span class="glyphicon glyphicon-time"></span> Duration
+          </div>
+          <div class="col-md-2">
+            <span class="glyphicon glyphicon-time"></span> Time
+          </div>
+          <div class="col-md-2">
+            <span class="glyphicon glyphicon-plus"></span> Points
+          </div>
+        </div>
       </div>
-      <div class="col-md-2">
-        <span class="glyphicon glyphicon-signal"></span> Difficulty
+
+      {{#each answers as |answer index|}}
+        {{sc-question-result result=answer index=index}}
+      {{/each}}
+
+      <div class="sc2iq-question-results__footer">
+        <div class="row">
+          <div class="col-md-8 col-md-offset-2 text-center">
+            {{#link-to "scores" tagName="button" class="btn btn-primary"}}Scores{{/link-to}}
+          </div>
+          <div class="col-md-2">
+            <b>{{totalPoints}}</b>
+          </div>
+        </div>
       </div>
-      <div class="col-md-2">
-        <span class="glyphicon glyphicon-time"></span> Duration
-      </div>
-      <div class="col-md-2">
-        <span class="glyphicon glyphicon-time"></span> Time
-      </div>
-      <div class="col-md-2">
-        <span class="glyphicon glyphicon-plus"></span> Points
-      </div>
+
     </div>
   </div>
-
-  {{#each answers as |answer index|}}
-    {{sc-question-result result=answer index=index}}
-  {{/each}}
-
-  <div class="sc2iq-question-results__footer">
-    <div class="row">
-      <div class="col-md-8 col-md-offset-2 text-center">
-        {{#link-to "scores" tagName="button" class="btn btn-primary"}}Scores{{/link-to}}
-      </div>
-      <div class="col-md-2">
-        <b>{{totalPoints}}</b>
-      </div>
-    </div>
-  </div>
-
 </div>
