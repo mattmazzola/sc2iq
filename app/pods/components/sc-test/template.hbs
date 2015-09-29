@@ -40,26 +40,22 @@
     <div class="sc2iq-test__questions {{unless isStarted 'hidden'}} {{if isFinished 'hidden'}}">
       <div class="panel panel-default">
         <div class="panel-heading clearfix">
-            <span class="big-q">Q</span><span class="text">{{currentQuestion.text}}</span>
+            <h1>{{currentQuestion.text}}</h1>
         </div>
         <div class="panel-body">
           <button type="button" class="btn btn-default btn-lg btn-block" {{action "submitAnswerClicked" 1 currentQuestion}}>
-              <span class=" index">1</span>
               <span class="text">{{currentQuestion.answer1}}</span>
           </button>
 
           <button type="button" class="btn btn-default btn-lg btn-block" {{action "submitAnswerClicked" 2 currentQuestion}}>
-              <span class="index">2</span>
               <span class="text">{{currentQuestion.answer2}}</span>
           </button>
 
           <button type="button" class="btn btn-default btn-lg btn-block" {{action "submitAnswerClicked" 3 currentQuestion}}>
-              <span class="index">3</span>
               <span class="text">{{currentQuestion.answer3}}</span>
           </button>
 
           <button type="button" class="btn btn-default btn-lg btn-block" {{action "submitAnswerClicked" 4 currentQuestion}}>
-              <span class="index">4</span>
               <span class="text">{{currentQuestion.answer4}}</span>
           </button>
         </div>
@@ -67,13 +63,16 @@
     </div>
 
     <div class="sc2iq-test__finished {{unless isFinished 'hidden'}}">
-      {{sc-test-results answers=answers }}
+      {{sc-test-results answers=answers}}
     </div>
 
     <div class="sc2iq-test__actions text-center">
       <button type="button" class="btn {{if isFinished 'btn-success' 'btn-warning'}} btn-lg" {{action "restart" }} disabled="{{unless isStarted 'disabled'}}">
           <span class="glyphicon glyphicon-repeat"></span> Restart
       </button>
+      <span class="{{unless isFinished 'hidden'}}">
+        {{#link-to "scores" tagName="button" class="btn btn-primary btn-lg"}}Scores{{/link-to}}
+      </span>
     </div>
 
     <div class="sc2iq-test__tips text-center {{if isStarted 'hidden'}}">
