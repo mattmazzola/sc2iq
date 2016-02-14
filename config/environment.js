@@ -3,6 +3,7 @@
 module.exports = function(environment) {
   var ENV = {
     modulePrefix: 'sc2iqnew',
+    podModulePrefix: 'sc2iqnew/pods',
     environment: environment,
     baseURL: '/',
     locationType: 'auto',
