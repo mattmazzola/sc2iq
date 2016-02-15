@@ -12,6 +12,7 @@ Router.map(function() {
   this.route('faqs');
   this.route('scores');
   this.route('contact');
+  this.route('login');
 });
 
 export default Router;
