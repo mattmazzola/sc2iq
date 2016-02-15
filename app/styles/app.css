@@ -1,0 +1,82 @@
+html {
+  height: 100%;
+}
+body {
+  background:
+    linear-gradient(
+      to bottom,
+      #0f2e48,
+      #122139 25%,
+      #070f1b 50%,
+      #09131f 75%,
+      #000000 100%
+    );
+  margin: 0;
+  display: flex;
+  height: 100%;
+  color: white;
+}
+body > .ember-view {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+}
+
+a:link,
+a:visited {
+  text-decoration: none;
+  color: white;
+}
+
+.sc2iq-layout {
+
+  display: flex;
+  justify-content: center;
+  flex: 1;
+}
+
+.sc2iq-login {
+  text-align: center;
+}
+
+.sc2iq-battlenet-button {
+  background:
+    linear-gradient(
+      to bottom,
+      #0e99d8,
+      #0177af
+    );
+
+  border: 1px solid #268ab9;
+  border-radius: 3px;
+  padding: 1em;
+  color: white;
+  min-width: 360px;
+  cursor: pointer;
+}
+
+.sc2iq-page {
+  min-width: 800px;
+  display: flex;
+  flex-direction: column;
+}
+.sc2iq-page__contents {
+  flex: 1;
+}
+
+.sc2iq-header {
+  display: flex;
+}
+
+.sc2iq-navigation {
+  display: flex;
+  flex: 1;
+}
+.sc2iq-navigation__link {
+  padding: 1em;
+  color: white;
+}
+
+.sc2iq-footer {
+  padding: 1em;
+}
