@@ -6,13 +6,16 @@ const Router = Ember.Router.extend({
 });
 
 Router.map(function() {
-  this.route('test');
-  this.route('questions');
-  this.route('polls');
-  this.route('faqs');
-  this.route('scores');
-  this.route('contact');
   this.route('login');
+
+  this.route('index', { path: '/' }, function() {
+    this.route('questions');
+    this.route('polls');
+    this.route('scores');
+    this.route('test');
+    this.route('faqs');
+    this.route('contact');
+  });
 });
 
 export default Router;

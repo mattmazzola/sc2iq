@@ -1,3 +1,16 @@
-<h2>Index</h2>
+<header>
+  <nav>
+    {{#link-to "index.index" }}Index{{/link-to}}
+    {{#link-to "index.test" }}Test{{/link-to}}
+    {{#link-to "index.questions" }}Questions{{/link-to}}
+    {{#link-to "index.polls" }}Polls{{/link-to}}
+    {{#link-to "index.scores" }}Scores{{/link-to}}
+  </nav>
+</header>
 
 {{outlet}}
+
+<footer>
+  {{#link-to "index.faqs" }}FAQs{{/link-to}}
+  {{#link-to "index.contact" }}Contact{{/link-to}}
+</footer>
