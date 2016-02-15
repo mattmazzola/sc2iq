@@ -20,6 +20,15 @@ module.exports = function(environment) {
     }
   };
 
+  ENV.torii = {
+    providers: {
+      'battlenet-oauth2authorization': {
+        apiKey: 'pnk6ff85mpfm8emxfxbffegc5nyb6sbs',
+        redirectUri: 'https://localhost:4200/'
+      }
+    }
+  };
+
   if (environment === 'development') {
     // ENV.APP.LOG_RESOLVER = true;
     // ENV.APP.LOG_ACTIVE_GENERATION = true;
