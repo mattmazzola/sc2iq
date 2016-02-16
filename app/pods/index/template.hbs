@@ -1,28 +1,35 @@
 <div class="sc2iq-page">
   <header class="sc2iq-header">
-    <nav class="sc2iq-navigation">
-      {{#link-to "index.index" class="sc2iq-navigation__link" }}Home{{/link-to}}
-      {{#link-to "index.test" class="sc2iq-navigation__link" }}Test{{/link-to}}
-      {{#link-to "index.questions" class="sc2iq-navigation__link" }}Questions{{/link-to}}
-      {{#link-to "index.polls" class="sc2iq-navigation__link" }}Polls{{/link-to}}
-      {{#link-to "index.scores" class="sc2iq-navigation__link" }}Scores{{/link-to}}
-    </nav>
+    <div class="container">
+      <nav class="sc2iq-navigation">
+        {{#link-to "index.index" class="sc2iq-navigation__link" }}Home{{/link-to}}
+        {{#link-to "index.test" class="sc2iq-navigation__link" }}Test{{/link-to}}
+        {{#link-to "index.questions" class="sc2iq-navigation__link" }}Questions{{/link-to}}
+        {{#link-to "index.polls" class="sc2iq-navigation__link" }}Polls{{/link-to}}
+        {{#link-to "index.scores" class="sc2iq-navigation__link" }}Scores{{/link-to}}
+      </nav>
 
-    <p>
-      <span>{{#link-to "index.profile" sessionAccount.userAccount}}{{sessionAccount.user.name}}{{/link-to}}</span> <button type="button" {{action 'invalidateSession'}}>Logout</button>
-    </p>
+      <p>
+        <span>{{#link-to "index.profile" sessionAccount.userAccount}}{{sessionAccount.user.name}}{{/link-to}}</span> <button type="button" {{action 'invalidateSession'}}>Logout</button>
+      </p>
+  </div>
   </header>
-  <div class="sc2iq-user-points">
-    PointsEarned: {{sessionAccount.userAccount.pointsEarned}}
-    PointsSpent: {{sessionAccount.userAccount.pointsSpent}}
-  </div>
-
   <div class="sc2iq-page__contents">
-    {{outlet}}
+    <div class="container container--column">
+      <div class="sc2iq-user-points">
+        PointsEarned: {{sessionAccount.userAccount.pointsEarned}}
+        PointsSpent: {{sessionAccount.userAccount.pointsSpent}}
+      </div>
+      <div class="sc2iq-main">
+        {{outlet}}
+      </div>
+    </div>
   </div>
 
-  <footer>
-    {{#link-to "index.faqs" }}FAQs{{/link-to}}
-    {{#link-to "index.contact" }}Contact{{/link-to}}
+  <footer class="sc2iq-footer">
+    <div class="container">
+        {{#link-to "index.faqs" }}FAQs{{/link-to}}
+        {{#link-to "index.contact" }}Contact{{/link-to}}
+    </div>
   </footer>
 </div>

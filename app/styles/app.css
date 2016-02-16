@@ -2,7 +2,7 @@ html {
   height: 100%;
 }
 body {
-  background:
+  background: #000000
     linear-gradient(
       to bottom,
       #0f2e48,
@@ -10,7 +10,8 @@ body {
       #070f1b 50%,
       #09131f 75%,
       #000000 100%
-    );
+    )
+    no-repeat;
   margin: 0;
   display: flex;
   height: 100%;
@@ -56,16 +57,30 @@ a:visited {
 }
 
 .sc2iq-page {
-  min-width: 800px;
   display: flex;
+  flex: 1;
   flex-direction: column;
 }
 .sc2iq-page__contents {
   flex: 1;
+  display: flex;
+  justify-content: center;;
 }
 
 .sc2iq-header {
+  background:
+    black
+    linear-gradient(
+      to bottom,
+      #090f16,
+      #0c1d2a
+    );
+    no-repeat;
+  border-top: 1px solid #000;
+  border-bottom: 1px solid #000;
   display: flex;
+  flex: 0 0;
+  justify-content: center;
 }
 
 .sc2iq-navigation {
@@ -79,4 +94,16 @@ a:visited {
 
 .sc2iq-footer {
   padding: 1em;
+  flex: 0 0;
+  display: flex;
+  justify-content: center;
+}
+
+.container {
+  max-width: 1200px;
+  display: flex;
+  flex: 1;
+}
+.container--column{
+  flex-direction: column;
 }

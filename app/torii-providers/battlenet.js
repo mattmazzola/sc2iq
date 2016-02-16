@@ -66,6 +66,7 @@ export default Oauth2Bearer.extend({
                 email: battleNetUser.email,
                 id: character.id,
                 name: character.name,
+                career: character.career,
                 profileImageUrl: character.avatar.url
               };
             });
