@@ -15,7 +15,7 @@ export default Ember.Service.extend({
 
     const userPromise = new Ember.RSVP.Promise(resolve => {
       if(userId) {
-        return this.get('store').find('user', userId)
+        const userP = this.get('store').find('user', userId)
           .catch(error => {
             const newUser = this.get('store').createRecord('user', {
               id: userId,
@@ -23,12 +23,15 @@ export default Ember.Service.extend({
               // TODO: Remove, just make API happy
               pointsEarned: 0,
               pointsSpent: 0,
+              reputation: 0,
               role: 0,
               created: "2015-01-01T00:00:00Z"
             });
 
             return newUser.save();
           });
+
+        resolve(userP);
       }
       else {
         resolve(null);
