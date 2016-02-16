@@ -8,6 +8,7 @@ export default DS.Model.extend({
   battleNetId: attr('number'),
   pointsEarned: attr('number'),
   pointsSpent: attr('number'),
+  reputation: attr('number'),
   role: attr('number'),
   created: attr('string')
 });
