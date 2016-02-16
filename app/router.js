@@ -15,6 +15,7 @@ Router.map(function() {
     this.route('test');
     this.route('faqs');
     this.route('contact');
+    this.route('profile', { path: '/profile/:id' });
   });
 });
 
