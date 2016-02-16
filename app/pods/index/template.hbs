@@ -9,11 +9,12 @@
     </nav>
 
     <p>
-      <span>{{sessionAccount.user.name}}</span> <button type="button" {{action 'invalidateSession'}}>Logout</button>
+      <span>{{#link-to "index.profile" sessionAccount.userAccount}}{{sessionAccount.user.name}}{{/link-to}}</span> <button type="button" {{action 'invalidateSession'}}>Logout</button>
     </p>
   </header>
   <div class="sc2iq-user-points">
-    Votes: {{session.currentUser.votes}}
+    PointsEarned: {{sessionAccount.userAccount.pointsEarned}}
+    PointsSpent: {{sessionAccount.userAccount.pointsSpent}}
   </div>
 
   <div class="sc2iq-page__contents">
