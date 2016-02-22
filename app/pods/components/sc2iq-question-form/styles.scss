@@ -1,0 +1,11 @@
+.sc2iq-question-form {
+  // empty
+}
+.sc2iq-question-form__content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-in-out;
+}
+.sc2iq-question-form__content--open {
+  max-height: 1000px;
+}

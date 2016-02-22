@@ -1,3 +1,5 @@
+@import "pod-styles";
+
 html {
   height: 100%;
 }
@@ -68,14 +70,7 @@ a:visited {
 }
 
 .sc2iq-header {
-  background:
-    black
-    linear-gradient(
-      to bottom,
-      #090f16,
-      #0c1d2a
-    );
-    no-repeat;
+  background: black linear-gradient(to bottom, #090f16, #0c1d2a) no-repeat;
   border-top: 1px solid #000;
   border-bottom: 1px solid #000;
   display: flex;
@@ -90,6 +85,15 @@ a:visited {
 .sc2iq-navigation__link {
   padding: 1em;
   color: white;
+  border: 1px solid #172b39;
+
+  &:hover {
+    box-shadow: inset 0px 0px 40px 0px rgba(4, 71, 159, 0.3);
+  }
+  &.active {
+    border-color: #0f2339;
+    box-shadow: inset 0px 0px 40px 0px rgba(4, 71, 159, 0.6);
+  }
 }
 
 .sc2iq-footer {
@@ -104,6 +108,21 @@ a:visited {
   display: flex;
   flex: 1;
 }
-.container--column{
+.container--column {
   flex-direction: column;
+}
+
+
+.form-control {
+  display: block;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  background: #080b14;
+  border: 1px solid #121d28;
+  border-radius: 3px;
+  padding: 0.5em;
+  outline: none;
+  color: #f1fffe;
+  box-sizing: border-box;
 }
