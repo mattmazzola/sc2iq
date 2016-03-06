@@ -1,35 +1,76 @@
 <div class="sc2iq-page">
-  <header class="sc2iq-header">
+  <div class="sc2iq-page__header">
     <div class="container">
-      <nav class="sc2iq-navigation">
-        {{#link-to "index.index" class="sc2iq-navigation__link" }}Home{{/link-to}}
-        {{#link-to "index.test" class="sc2iq-navigation__link" }}Test{{/link-to}}
-        {{#link-to "index.questions" class="sc2iq-navigation__link" }}Questions{{/link-to}}
-        {{#link-to "index.polls" class="sc2iq-navigation__link" }}Polls{{/link-to}}
-        {{#link-to "index.scores" class="sc2iq-navigation__link" }}Scores{{/link-to}}
-      </nav>
+      <header class="sc2iq-header">
+        <nav class="sc2iq-navigation">
+          {{#link-to "index.index" class="sc2iq-navigation__link-home" }}
+            <img src="https://placehold.it/60x60" alt="SC2IQ Home" />
+          {{/link-to}}
+          {{#link-to "index.test" class="sc2iq-navigation__link" }}
+            <div class="sc2iq-navigation__link-image">
+              <img src="https://placehold.it/40x40" alt="Test" />
+            </div>
+            <p class="sc2iq-navigation__link-text">Test</p>
+          {{/link-to}}
+          {{#link-to "index.questions" class="sc2iq-navigation__link" }}
+            <div class="sc2iq-navigation__link-image">
+              <img src="https://placehold.it/40x40" alt="Test" />
+            </div>
+            <p class="sc2iq-navigation__link-text">Questions</p>
+          {{/link-to}}
+          {{#link-to "index.polls" class="sc2iq-navigation__link" }}
+            <div class="sc2iq-navigation__link-image">
+              <img src="https://placehold.it/40x40" alt="Test" />
+            </div>
+            <p class="sc2iq-navigation__link-text">Polls</p>
+          {{/link-to}}
+          {{#link-to "index.scores" class="sc2iq-navigation__link" }}
+            <div class="sc2iq-navigation__link-image">
+              <img src="https://placehold.it/40x40" alt="Test" />
+            </div>
+            <p class="sc2iq-navigation__link-text">Scores</p>
+          {{/link-to}}
+        </nav>
 
-      <p>
-        <span>{{#link-to "index.profile" sessionAccount.userAccount}}{{sessionAccount.user.name}}{{/link-to}}</span> <button type="button" {{action 'invalidateSession'}}>Logout</button>
-      </p>
+        {{#link-to "index.profile" sessionAccount.userAccount class="sc2iq-navigation__link-profile" }}<img src="{{session.data.authenticated.profileImageUrl}}" alt="Profile Image" />{{/link-to}}
+
+      </header>
+    </div>
   </div>
-  </header>
-  <div class="sc2iq-page__contents">
-    <div class="container container--column">
+  <div class="sc2iq-page__body">
+    <div class="sc2iq-body">
       <div class="sc2iq-user-points">
-        PointsEarned: {{sessionAccount.userAccount.pointsEarned}}
-        PointsSpent: {{sessionAccount.userAccount.pointsSpent}}
+        <div class="container container--column">
+          <div class="sc2iq-user-stats">
+            <div class="sc2iq-user-stats__range">
+              <div class="sc2iq-user-stats-range">
+                <div class="sc2iq-user-stats-range__minimum">
+                    100
+                </div>
+                <div class="sc2iq-user-stats-range__meter">
+                  <div class="sc2iq-user-stats-range__meter-value" style="width: 40%;">
+                    400
+                  </div>
+                </div>
+                <div class="sc2iq-user-stats-range__maximum">
+                    1000 ({{sessionAccount.userAccount.pointsSpent}} / {{sessionAccount.userAccount.pointsEarned}})
+                </div>
+              </div>
+            </div>
+            <div class="sc2iq-user-stats__votes">
+              <div class="sc2iq-user-stats-votes">
+                Votes: 4 / 10
+              </div>
+
+            </div>
+          </div>
+        </div>
       </div>
-      <div class="sc2iq-main">
-        {{outlet}}
+      <div class="container container--column">
+        <div class="sc2iq-main">
+          {{outlet}}
+        </div>
       </div>
     </div>
   </div>
-
-  <footer class="sc2iq-footer">
-    <div class="container">
-        {{#link-to "index.faqs" }}FAQs{{/link-to}}
-        {{#link-to "index.contact" }}Contact{{/link-to}}
-    </div>
-  </footer>
 </div>
