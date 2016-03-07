@@ -7,10 +7,11 @@ const Router = Ember.Router.extend({
 
 Router.map(function() {
   this.route('login');
+  this.route('notfound', { path: '/*wildcard' });
 
   this.route('index', { path: '/' }, function() {
     this.route('questions', function() {
-      this.route('error');
+      this.route('error', { path: '/:message' });
       this.route('loading');
       this.route('question', { path: '/:question_id'});
     });

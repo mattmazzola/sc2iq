@@ -5,10 +5,12 @@
   Search
 </div>
 
-
 {{#each model as |question|}}
   <h2>{{question.q}}</h2>
-  <p>
-    {{question.a1}}
-  </p>
+  <ul>
+    <li>{{question.a1}}</li>
+    <li>{{question.a2}}</li>
+    <li>{{question.a3}}</li>
+    <li>{{question.a4}}</li>
+  </ul>
 {{/each}}

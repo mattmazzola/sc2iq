@@ -4,35 +4,39 @@
       <header class="sc2iq-header">
         <nav class="sc2iq-navigation">
           {{#link-to "index.index" class="sc2iq-navigation__link-home" }}
-            <img src="https://placehold.it/60x60" alt="SC2IQ Home" />
+            <img src="/images/icon_home.png" alt="SC2IQ Home" />
           {{/link-to}}
           {{#link-to "index.test" class="sc2iq-navigation__link" }}
             <div class="sc2iq-navigation__link-image">
-              <img src="https://placehold.it/40x40" alt="Test" />
+              <img src="/images/icon_test.png" alt="Test" />
             </div>
             <p class="sc2iq-navigation__link-text">Test</p>
           {{/link-to}}
           {{#link-to "index.questions" class="sc2iq-navigation__link" }}
             <div class="sc2iq-navigation__link-image">
-              <img src="https://placehold.it/40x40" alt="Test" />
+              <img src="/images/icon_questions.png" alt="Test" />
             </div>
             <p class="sc2iq-navigation__link-text">Questions</p>
           {{/link-to}}
           {{#link-to "index.polls" class="sc2iq-navigation__link" }}
             <div class="sc2iq-navigation__link-image">
-              <img src="https://placehold.it/40x40" alt="Test" />
+              <img src="/images/icon_scores.png" alt="Test" />
             </div>
             <p class="sc2iq-navigation__link-text">Polls</p>
           {{/link-to}}
           {{#link-to "index.scores" class="sc2iq-navigation__link" }}
             <div class="sc2iq-navigation__link-image">
-              <img src="https://placehold.it/40x40" alt="Test" />
+              <img src="/images/icon_polls.png" alt="Test" />
             </div>
             <p class="sc2iq-navigation__link-text">Scores</p>
           {{/link-to}}
         </nav>
 
-        {{#link-to "index.profile" sessionAccount.userAccount class="sc2iq-navigation__link-profile" }}<img src="{{session.data.authenticated.profileImageUrl}}" alt="Profile Image" />{{/link-to}}
+        {{#link-to "index.profile" sessionAccount.userAccount class="sc2iq-navigation__link-profile" }}
+          <div class="sc2iq-navigation__link-profile-background" style="background: url('{{session.data.authenticated.profileImageUrl}}')">
+            &nbsp;
+          </div>
+        {{/link-to}}
 
       </header>
     </div>

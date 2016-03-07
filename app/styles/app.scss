@@ -46,8 +46,8 @@ a:visited {
       #0177af
     );
 
-  border: 1px solid #268ab9;
-  border-radius: 3px;
+  border: 1px solid #33a9e0;
+  border-radius: 2px;
   padding: 1em;
   color: white;
   min-width: 360px;
@@ -129,7 +129,7 @@ a:visited {
 }
 .sc2iq-navigation__link-profile {
   display: flex;
-  height: 86px;
+  min-width: 80px;
 }
 
 .sc2iq-user-points {
@@ -161,6 +161,20 @@ a:visited {
   outline: none;
   color: #f1fffe;
   box-sizing: border-box;
+}
+
+.sc2iq-login {
+  display: flex;
+  flex-direction: column;
+}
+.sc2iq-login__banner {
+  margin: 2em 0 1em 0;
+}
+.sc2iq-login__battlenet {
+  margin: 1em 0;
+}
+.sc2iq-login__button {
+  margin: 1em 0;
 }
 
 .sc2iq-user-stats {
