@@ -1,0 +1,28 @@
+.sc2iq-question-full__title {
+  margin: 1em 0;
+
+  textarea {
+    resize: vertical;
+  }
+}
+
+.sc2iq-question-full__answers {
+  font-size: 1.75rem;
+}
+
+.sc2iq-question-full__metadata {
+  margin: 2em 2em 0 2em;
+  color: #79c7ff;
+  font-size: 1.25rem;
+}
+
+.sc2iq-correct-answer {
+  color: #16b52b;
+}
+.sc2iq-wrong-answer {
+  color: #27455f;
+}
+
+.sc2iq-question-full__buttons {
+  margin-top: 2em;
+}

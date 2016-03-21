@@ -1,0 +1,53 @@
+<div class="sc2iq-question">
+  <div class="sc2iq-question__trigger" {{action "toggleProperty" "isAnswersVisible" }}>
+    <div class="row">
+      <div class="col-xs-10">
+        <h3 class="sc2iq-question__title">{{question.q}}</h3>
+      </div>
+      <div class="col-xs-2 text-right">
+        <button type="button" class="btn btn-link">
+          <span class="glyphicon glyphicon-plus sc2iq-icon {{if isAnswersVisible 'sc2iq-icon--rotate'}}" ></span>
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="sc2iq-question__content {{if isAnswersVisible 'sc2iq-question__content--open'}}">
+    <div class="sc2iq-question__content-internal">
+      <div class="sc2iq-question__answers">
+        <p>
+          <span class="glyphicon glyphicon-ok sc2iq-correct-answer"></span> {{question.a1}}
+        </p>
+        <p>
+          <span class="glyphicon glyphicon-remove wrong-answer"></span> {{question.a2}}
+        </p>
+        <p>
+          <span class="glyphicon glyphicon-remove wrong-answer"></span> {{question.a3}}
+        </p>
+        <p>
+          <span class="glyphicon glyphicon-remove wrong-answer"></span> {{question.a4}}
+        </p>
+      </div>
+      <div class="sc2iq-question__metadata">
+        <p class="tags row">
+          <div class="col-sm-1">Tags:</div>
+          <div class="col-sm-11">
+            {{#each question.tags as |tag| }}
+            <span class="tag"><span class="glyphicon glyphicon-tag"></span> {{tag}}</span>
+            {{/each}}
+          </div>
+        </p>
+        <p>
+          <span class="difficulty">Difficulty: {{question.difficulty}}</span>
+        </p>
+        <div class="change">
+          <p>
+            Disagree with the question? Submit a change request:
+            {{#link-to "index.questions.question" question tagName="button" class="btn btn-primary btn-sm btn-warning"}}
+            <span class="glyphicon glyphicon-pencil"></span> Submit Change
+            {{/link-to}}
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

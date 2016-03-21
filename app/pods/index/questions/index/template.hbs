@@ -2,15 +2,9 @@
   {{sc2iq-question-form on-submit=(route-action "save")}}
 </div>
 <div class="sc2iq-section sc2iq-section--search">
-  Search
+  {{sc2iq-question-search on-submit=(route-action "search")}}
 </div>
 
 {{#each model as |question|}}
-  <h2>{{question.q}}</h2>
-  <ul>
-    <li>{{question.a1}}</li>
-    <li>{{question.a2}}</li>
-    <li>{{question.a3}}</li>
-    <li>{{question.a4}}</li>
-  </ul>
+  {{sc2iq-question question=question}}
 {{/each}}

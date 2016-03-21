@@ -1,0 +1,62 @@
+<div class="sc2iq-question-full {{if isEditMode 'hidden'}}">
+  <h3 class="sc2iq-question-full__title">{{question.q}}</h3>
+  <div class="sc2iq-question-full__answers">
+    {{#each answers as |answer| }}
+      <p class="{{if answer.isCorrect 'sc2iq-correct-answer'}}">
+        <span class="glyphicon {{if answer.isCorrect 'glyphicon-ok' 'glyphicon-remove'}}"></span> {{answer.text}}
+      </p>
+    {{/each}}
+  </div>
+  <div class="sc2iq-question-full__metadata">
+    <p class="tags row">
+      <div class="col-sm-1">Tags:</div>
+      <div class="col-sm-11">
+        {{#each question.tags as |tag| }}
+        <span class="tag"><span class="glyphicon glyphicon-tag"></span> {{tag}}</span>
+        {{/each}}
+      </div>
+    </p>
+    <p>
+      <span class="difficulty">Difficulty: {{question.difficulty}}</span>
+    </p>
+  </div>
+</div>
+
+<form class="sc2iq-question-full form-horizontal {{unless isEditMode 'hidden'}}">
+  <h3 class="sc2iq-question-full__title">
+    {{textarea value=question.q class="form-control"}}
+  </h3>
+  {{#each answers as |answer index| }}
+    <div class="form-group">
+      <label for="answer{{index}}" class="col-sm-2 col-md-1 control-label"><span class="glyphicon {{if answer.isCorrect 'glyphicon-ok' 'glyphicon-remove'}}"></span> {{index}}</label>
+      <div class="col-sm-10 col-md-11">
+        {{input type="text" class="form-control" value=answer.text}}
+      </div>
+    </div>
+  {{/each}}
+  <div class="form-group">
+    <label for="difficulty" class="col-sm-2 col-md-1 control-label">Difficulty</label>
+    <div class="col-sm-10 col-md-11">
+      <div class="input-group input-group-range">
+        <span class="input-group-addon">1</span>
+        {{input type="range" class="form-range" id="difficulty" step="1" min="1" max="10" value="1" placeholder="Difficulty" required="required" value=question.difficulty}}
+        <span class="input-group-addon input-group-range-value">{{question.difficulty}}</span>
+        <span class="input-group-addon">10</span>
+      </div>
+      <span class="help-block">Enter the difficulty (Range: 1-10) of the question. The higher the difficulty the more points a question is worth.</span>
+    </div>
+  </div>
+  <div class="form-group">
+    <label for="tags" class="col-sm-2 col-md-1 control-label">Tags</label>
+    <div class="col-sm-10 col-md-11">
+      {{input type="text" class="form-control" id="tags" placeholder="Tags" }}
+      <span class="help-block">Add tags to the question to help categorize it and provide easier lookups when searching. For instance, common tags are the three races (protoss, terran, zerg) or types (units, gameplay, story).</span>
+    </div>
+  </div>
+
+</form>
+
+<div class="sc2iq-question-full__buttons">
+  <button type="button" name="button" class="btn {{if isEditMode 'btn-warning' 'btn-primary'}}" {{action "toggleProperty" "isEditMode"}}>{{#if isEditMode}}Cancel{{else}}Edit{{/if}}</button>
+  <button type="submit" name="button" class="btn btn-success {{unless isEditMode 'hidden'}}" {{action "submit" question}}>Submit Changes</button>
+</div>

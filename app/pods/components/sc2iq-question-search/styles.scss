@@ -1,15 +1,15 @@
-.sc2iq-question-form {
+.sc2iq-question-search {
   margin: 2em 0;
 }
 .sc2iq-row--header {
   font-size: 2.5rem;
 }
-.sc2iq-question-form__content {
+.sc2iq-question-search__content {
   padding-top: 1em;
   max-height: 0;
   overflow: hidden;
   transition: max-height 0.3s ease-in-out;
 }
-.sc2iq-question-form__content--open {
+.sc2iq-question-search__content--open {
   max-height: 1000px;
 }

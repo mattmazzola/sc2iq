@@ -1,10 +1,10 @@
 <div class="sc2iq-question-form">
   <form class="form-horizontal" role="form" {{action "submit" on="submit"}}>
-      <div class="row">
+      <div class="row sc2iq-row--header">
         <label for="question" class="col-xs-9"><span class="glyphicon glyphicon-edit"></span> Create:</label>
         <div class="col-xs-3 text-right">
           <button type="button" class="btn btn-link" {{action "toggle"}}>
-            <span class="glyphicon glyphicon-plus sc2iq-icon {{if isExpanded 'sc2iq-icon--rotate'}}" >+</span>
+            <span class="glyphicon glyphicon-plus sc2iq-icon {{if isExpanded 'sc2iq-icon--rotate'}}" ></span>
           </button>
         </div>
       </div>
@@ -72,7 +72,7 @@
           </div>
         </div>
         <div class="form-group">
-          <div class="col-sm-offset-2 col-sm-10">
+          <div class="col-xs-12 text-center">
             <button type="submit" class="btn btn-lg btn-primary">Submit</button>
             <button type="reset" class="btn btn-lg btn-warning" {{action "reset"}}>Cancel</button>
           </div>

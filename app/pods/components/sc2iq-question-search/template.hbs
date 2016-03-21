@@ -1,0 +1,61 @@
+<div class="sc2iq-question-search">
+  <form class="form-horizontal" role="form" {{action "submit" on="submit"}}>
+      <div class="row sc2iq-row--header">
+        <label for="querytext" class="col-xs-9"><span class="glyphicon glyphicon-search"></span> Search:</label>
+        <div class="col-xs-3 text-right">
+          <button type="button" class="btn btn-link" {{action "toggle"}}>
+            <span class="glyphicon glyphicon-plus sc2iq-icon {{if isExpanded 'sc2iq-icon--rotate'}}" ></span>
+          </button>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="col-xs-12" {{action "expand" }}>
+          {{input type="text" class="form-control" id="querytext" placeholder="Search" required="required" value=querytext}}
+        </div>
+      </div>
+      <div class="sc2iq-question-search__content {{if isExpanded 'sc2iq-question-search__content--open'}}">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="includedtags" class="col-sm-3 control-label">Included:</label>
+              <div class="col-sm-9">
+                  {{input type="text" class="form-control" id="includedtags" placeholder="Included Tags" }}
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="excludedtags" class="col-sm-3 control-label">Excluded:</label>
+              <div class="col-sm-9">
+                  {{input type="text" class="form-control" id="excludedtags" placeholder="Excluded Tags" }}
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="difficultymin" class="col-sm-3 control-label">Min Difficulty:</label>
+              <div class="col-sm-9">
+                  {{input type="number" min="1" max="9" value="1" class="form-control" id="difficultymin" placeholder="Minimum Difficulty" }}
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <div class="form-group">
+              <label for="difficultymax" class="col-sm-3 control-label">Max Difficulty:</label>
+              <div class="col-sm-9">
+                  {{input type="number" min="2" max="10" value="10" class="form-control" id="difficultymax" placeholder="Maximum Difficulty" }}
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="form-group">
+          <div class="col-xs-12 text-center">
+            <button type="submit" class="btn btn-lg btn-primary">Submit</button>
+            <button type="reset" class="btn btn-lg btn-warning" {{action "reset"}}>Cancel</button>
+          </div>
+        </div>
+      </div>
+  </form>
+</div>

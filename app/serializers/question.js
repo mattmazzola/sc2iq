@@ -1,9 +1,33 @@
 import DS from 'ember-data';
 
 export default DS.JSONAPISerializer.extend({
-  normalizeResponse(...args) {
-    let [, , payload, id, requestType] = args;
 
+  normalizeResponse(store, primaryModelClass, payload, id, requestType) {
+    switch (requestType) {
+      case 'findRecord':
+        return this.normalizeFindRecordResponse(...arguments);
+      case 'queryRecord':
+        return this.normalizeQueryRecordResponse(...arguments);
+      case 'findAll':
+        return this.normalizeFindAllResponse(...arguments);
+      case 'findBelongsTo':
+        return this.normalizeFindBelongsToResponse(...arguments);
+      case 'findHasMany':
+        return this.normalizeFindHasManyResponse(...arguments);
+      case 'findMany':
+        return this.normalizeFindManyResponse(...arguments);
+      case 'query':
+        return this.normalizeQueryResponse(...arguments);
+      case 'createRecord':
+        return this.normalizeCreateRecordResponse(...arguments);
+      case 'deleteRecord':
+        return this.normalizeDeleteRecordResponse(...arguments);
+      case 'updateRecord':
+        return this.normalizeUpdateRecordResponse(...arguments);
+      }
+  },
+
+  normalizeFindAllResponse(store, primaryModelClass, payload, id, requestType) {
     const data = payload.map(x => {
       return {
         id: x.id,
@@ -11,35 +35,18 @@ export default DS.JSONAPISerializer.extend({
         attributes: x
       };
     });
-    const response = { data };
-    args.splice(2, 1, response);
 
-    switch (requestType) {
-      case 'findRecord':
-        return this.normalizeFindRecordResponse(...args);
-      case 'queryRecord':
-        return this.normalizeQueryRecordResponse(...args);
-      case 'findAll':
-        return this.normalizeFindAllResponse(...args);
-      case 'findBelongsTo':
-        return this.normalizeFindBelongsToResponse(...args);
-      case 'findHasMany':
-        return this.normalizeFindHasManyResponse(...args);
-      case 'findMany':
-        return this.normalizeFindManyResponse(...args);
-      case 'query':
-        return this.normalizeQueryResponse(...args);
-      case 'createRecord':
-        return this.normalizeCreateRecordResponse(...args);
-      case 'deleteRecord':
-        return this.normalizeDeleteRecordResponse(...args);
-      case 'updateRecord':
-        return this.normalizeUpdateRecordResponse(...args);
-    }
+    return this.normalizeArrayResponse(store, primaryModelClass, { data }, id, requestType);
   },
 
-  normalizeFindAllResponse(store, primaryModelClass, payload, id, requestType) {
-    return this.normalizeArrayResponse(...arguments);
+  normalizeFindRecordResponse(store, primaryModelClass, payload, id, requestType) {
+    const data = {
+      id: payload.id,
+      type: "question",
+      attributes: payload
+    };
+
+    return this.normalizeSingleResponse(store, primaryModelClass, { data }, id, requestType);
   },
 
   serialize(snapshot, options) {
